@@ -1,0 +1,33 @@
+
+# Setting PATH for Python 2.7
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+export PATH
+
+# added by Anaconda2 2.4.1 installer
+export PATH="/Users/Russ/anaconda/bin:$PATH"
+
+# added by Anaconda3 4.4.0 installer
+export PATH="/anaconda/bin:$PATH"
+
+#aliases
+alias ll='ls -l'
+alias la='ls -FA'
+
+# Load the shell dotfiles, and then some:
+# * ~/.path can be used to extend `$PATH`.
+# * ~/.extra can be used for other settings you don’t want to commit.
+for file in ~/.dotfiles/bash/{path,bash_prompt,exports,bash_aliases,functions,extra}; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
+
+# Append to the Bash history file, rather than overwriting it & other history
+# prefs
+shopt -s histappend;
+HISTCONTROL="erasedups:ignoreboth"
+HISTIGNORE="clear:exit:cd:pwd:ls:la:ll:lf:lx:history"
+HISTSIZE="1000"
+HISTFILESIZE="2000"
+
+
