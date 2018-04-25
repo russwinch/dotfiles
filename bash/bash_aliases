@@ -51,3 +51,6 @@ alias reload="exec $SHELL -l"
 # git commands:
 alias glog="git log --oneline --decorate --all --graph"
 alias plog="git log --pretty=format:'%h %an %s'"
+
+# neovim
+alias ni="nvim"
