@@ -17,9 +17,6 @@ for file in ~/.dotfiles/bash/{path,bash_prompt,exports,bash_aliases,functions,ex
 done;
 unset file;
 
-# vi mode
-# set -o vi
-
 # git completion:
 if [ -f ~/.git-completion.bash ]; then
     source ~/.git-completion.bash
