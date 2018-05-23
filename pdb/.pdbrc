@@ -1,0 +1,4 @@
+# alias
+alias dr pp dir(%1)
+alias loc locals().keys()
+
