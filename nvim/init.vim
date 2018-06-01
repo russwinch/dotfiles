@@ -10,6 +10,7 @@ let &packpath = &runtimepath
 " pip3 install neovim flake8 yapf
 " powerline fonts: https://github.com/powerline/fonts
 " universal c-tags: brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+" create a folder for tags: ~/.gutentags/
 
 " Themes:
 " Create a colors directory ~/.config/nvim/colors
@@ -114,7 +115,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 " set statusline+=%{gutentags#statusline()}
 
-" Gutentags:---------------------------------------------------------------
+" Gutentags:---------------------------------------------------------------{{{1
 let g:gutentags_cache_dir = '~/.gutentags/'
 
 " CtrlP:-------------------------------------------------------------------{{{1
@@ -245,15 +246,12 @@ nnoremap <leader>V "*P
 
 " snippets
 inoremap <leader>td # TODO-RW: 
-nnoremap <leader>td O# TODO-RW: 
+nnoremap <leader>td o# TODO-RW: 
 nnoremap <leader>st Oimport pdb; pdb.set_trace()<ESC>
-nnoremap <leader>ft :Ack pdb<CR>
 
-" errors
-nnoremap <leader>en :ALENextWrap<CR>
-nnoremap <leader>ep :ALEPreviousWrap<CR>
-" searching
-" inoremap <C-M> <cr>:nohl<cr>
+" pretty print json
+nnoremap <leader>jp :%!python -m json.tool<cr>
+vnoremap <leader>jp :%!python -m json.tool<cr>
 "
 " Terminal:-----------------------------------------------------------------{{{1
 tnoremap <C-v><Esc> <C-\><C-n>
