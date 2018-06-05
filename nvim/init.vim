@@ -32,7 +32,7 @@ Plug 'sbdchd/vim-run'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'https://github.com/mileszs/ack.vim'
+Plug 'mileszs/ack.vim'
 " Plug 'zchee/deoplete-jedi'
 call plug#end()
 
@@ -216,7 +216,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " - search & highlighting
 nnoremap <silent> <leader>hn :nohl<cr>
 
-" navigate between splits
+" navigate between splits useful for terminal
 " - option + h, j, k, l come out as symbols on mac
 nnoremap ˙ <C-w>h
 nnoremap ∆ <C-w>j
@@ -247,6 +247,7 @@ nnoremap <leader>V "*P
 inoremap <leader>td # TODO-RW: 
 nnoremap <leader>td O# TODO-RW: 
 nnoremap <leader>st Oimport pdb; pdb.set_trace()<ESC>
+" nnoremap <leader>sT Oimport pdb; pdb.set_trace()<ESC>
 nnoremap <leader>ft :Ack pdb<CR>
 
 " errors
