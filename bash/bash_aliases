@@ -60,6 +60,15 @@ venvactivate(){
     source ~/venvs/$1/bin/activate
 }
 
+# tmux
+alias ti="tmux split-window -v -p 30"
+
+tsplit(){
+    # tmux split-window -v -p 30
+    tmux split-window -h -p 66
+    tmux split-window -h -p 50
+}
+
 # ssh fix
 alias fix-ssh="cd ~/.ssh && ssh-add -A && cd -"
 
