@@ -33,7 +33,7 @@ Plug 'sbdchd/vim-run'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'https://github.com/mileszs/ack.vim'
+Plug 'mileszs/ack.vim'
 " Plug 'zchee/deoplete-jedi'
 call plug#end()
 
@@ -250,6 +250,7 @@ nnoremap <leader>V "*P
 inoremap <leader>td # TODO:
 nnoremap <leader>td o# TODO:
 nnoremap <leader>st Oimport pdb; pdb.set_trace()<ESC>
+nnoremap <leader>ft :Ack pdb<CR>
 
 " pretty print json
 nnoremap <leader>jp :%!python -m json.tool<cr>
