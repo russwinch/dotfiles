@@ -65,6 +65,9 @@ set splitbelow
 set splitright
 " set hidden
 
+" i know this is terrible but it is nice to scroll...
+set mouse=a
+
 " LINE NUMERING:-----------------------------------------------------------{{{1
 
 " set number
