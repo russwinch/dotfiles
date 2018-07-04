@@ -160,13 +160,13 @@ endif
 " noremap <right> <Nop>
 " noremap <down> <Nop>
 
-" " : in INSERT mode
+" : in INSERT mode
 " inoremap <up> <Nop>
 " inoremap <left> <Nop>
 " inoremap <right> <Nop>
 " inoremap <down> <Nop>
 
-" " : in VISUAL mode
+" : in VISUAL mode
 " vnoremap <up> <Nop>
 " vnoremap <left> <Nop>
 " vnoremap <right> <Nop>
@@ -207,6 +207,7 @@ nnoremap <leader>n :tabn<CR>
 nnoremap <leader>p :tabp<CR>
 nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bp :bp<CR>
+
 " delete buffer
 nnoremap <leader>bd :bn<CR>:bd#<CR>
 
@@ -230,7 +231,8 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " - search & highlighting
 nnoremap <silent> <leader>hn :nohl<cr>
 
-" navigate between splits useful for terminal
+" navigate between splits
+nmap <Space> <C-w>w
 " - option + h, j, k, l come out as symbols on mac
 nnoremap ˙ <C-w>h
 nnoremap ∆ <C-w>j
@@ -258,15 +260,15 @@ nnoremap <leader>v "*p
 nnoremap <leader>V "*P
 
 " snippets
-inoremap <leader>td # TODO-RW: 
-nnoremap <leader>td o# TODO-RW: 
+inoremap <leader>td # TODO:
+nnoremap <leader>td o# TODO:
 nnoremap <leader>st Oimport pdb; pdb.set_trace()<ESC>
 nnoremap <leader>ft :Ack pdb<CR>
 
 " pretty print json
 nnoremap <leader>jp :%!python -m json.tool<cr>
 vnoremap <leader>jp :%!python -m json.tool<cr>
-"
+
 " Terminal:-----------------------------------------------------------------{{{1
 tnoremap <C-v><Esc> <C-\><C-n>
 
