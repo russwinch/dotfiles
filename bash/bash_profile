@@ -1,4 +1,5 @@
 # .bash_profile - login shell configuration:
+source ~/.bashrc
 
 # Add `~/bin` & `~/bin/local` to the `$PATH`
 if [ -d "$HOME/bin" ]; then

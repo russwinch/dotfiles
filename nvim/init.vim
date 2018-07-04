@@ -34,6 +34,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mileszs/ack.vim'
+" Plug 'ambv/black'
 " Plug 'zchee/deoplete-jedi'
 call plug#end()
 
@@ -52,7 +53,11 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-set textwidth=79
+if $LOCATION == 'work'
+    set textwidth=88
+else
+    set textwidth=79
+endif
 set colorcolumn=+1
 
 " Splits and buffers - feels more natural
@@ -105,9 +110,14 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Ale:---------------------------------------------------------------------{{{1
 
+" let g:ale_python_flake8_executable = 'python3'   " or 'python' for Python 2
 let g:ale_linters = {'python': ['flake8']}
+if $LOCATION == 'work'
+    let g:ale_python_flake8_options = '--max-line-length 88'
+endif
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
+let g:ale_sign_column_always = 1
 
 " AIRLINE:-----------------------------------------------------------------{{{1
 
@@ -117,6 +127,9 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Gutentags:---------------------------------------------------------------{{{1
 let g:gutentags_cache_dir = '~/.gutentags/'
+
+" Persistent Undo:---------------------------------------------------------{{{1
+set undofile
 
 " CtrlP:-------------------------------------------------------------------{{{1
 let g:ctrlp_map = '<c-p>'
@@ -142,22 +155,22 @@ endif
 
 " disable the arrow keys:
 " : in NORMAL mode
-noremap <up> <Nop>
-noremap <left> <Nop>
-noremap <right> <Nop>
-noremap <down> <Nop>
+" noremap <up> <Nop>
+" noremap <left> <Nop>
+" noremap <right> <Nop>
+" noremap <down> <Nop>
 
-" : in INSERT mode
-inoremap <up> <Nop>
-inoremap <left> <Nop>
-inoremap <right> <Nop>
-inoremap <down> <Nop>
+" " : in INSERT mode
+" inoremap <up> <Nop>
+" inoremap <left> <Nop>
+" inoremap <right> <Nop>
+" inoremap <down> <Nop>
 
-" : in VISUAL mode
-vnoremap <up> <Nop>
-vnoremap <left> <Nop>
-vnoremap <right> <Nop>
-vnoremap <down> <Nop>
+" " : in VISUAL mode
+" vnoremap <up> <Nop>
+" vnoremap <left> <Nop>
+" vnoremap <right> <Nop>
+" vnoremap <down> <Nop>
 
 " quick pairs in INSERT mode
 inoremap <leader>' ''<ESC>i
