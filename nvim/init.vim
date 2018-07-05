@@ -34,6 +34,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mileszs/ack.vim'
+" Plug 'kana/vim-textobj-indent'
+Plug 'christoomey/vim-sort-motion'
+" Plug 'kana/vim-textobj-line'
 " Plug 'zchee/deoplete-jedi'
 call plug#end()
 
