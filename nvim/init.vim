@@ -37,6 +37,7 @@ Plug 'mileszs/ack.vim'
 " Plug 'kana/vim-textobj-indent'
 Plug 'christoomey/vim-sort-motion'
 " Plug 'kana/vim-textobj-line'
+" Plug 'ambv/black'
 " Plug 'zchee/deoplete-jedi'
 call plug#end()
 
@@ -55,13 +56,20 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-set textwidth=79
+if $LOCATION == 'work'
+    set textwidth=88
+else
+    set textwidth=79
+endif
 set colorcolumn=+1
 
 " Splits and buffers - feels more natural
 set splitbelow
 set splitright
 " set hidden
+
+" i know this is terrible but it is nice to scroll...
+set mouse=a
 
 " LINE NUMERING:-----------------------------------------------------------{{{1
 
@@ -108,9 +116,14 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Ale:---------------------------------------------------------------------{{{1
 
+" let g:ale_python_flake8_executable = 'python3'   " or 'python' for Python 2
 let g:ale_linters = {'python': ['flake8']}
+if $LOCATION == 'work'
+    let g:ale_python_flake8_options = '--max-line-length 88'
+endif
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
+let g:ale_sign_column_always = 1
 
 " AIRLINE:-----------------------------------------------------------------{{{1
 
@@ -120,6 +133,9 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Gutentags:---------------------------------------------------------------{{{1
 let g:gutentags_cache_dir = '~/.gutentags/'
+
+" Persistent Undo:---------------------------------------------------------{{{1
+set undofile
 
 " CtrlP:-------------------------------------------------------------------{{{1
 let g:ctrlp_map = '<c-p>'

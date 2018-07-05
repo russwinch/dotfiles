@@ -38,10 +38,6 @@ alias egrep='egrep --color=auto'
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
-# Hide/show all desktop icons (useful when presenting):
-alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
-alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-
 # Lock the screen (when going AFK):
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
@@ -56,21 +52,22 @@ alias plog="git log --pretty=format:'%h %an %s'"
 alias ni="nvim"
 
 # virtualenvs
-venvactivate(){
-    source ~/venvs/$1/bin/activate
+venv(){
+    source ~/Documents/venvs/$1/bin/activate
 }
 
 # tmux
-alias ti="tmux split-window -v -p 30"
+alias ti="tmux new-session -s 'vim' \; split-window -v -p 30 \; attach"
 
-tsplit(){
-    # tmux split-window -v -p 30
+alias sp="tmux split-window -v -p 30"
+
+tsp(){
     tmux split-window -h -p 66
     tmux split-window -h -p 50
 }
 
 # ssh fix
-alias fix-ssh="cd ~/.ssh && ssh-add -A && cd -"
+alias fix-ssh="pushd ~/.ssh && ssh-add -A && popd"
 
 # docker
 alias remove-docker-images='docker images | tail -n +2 | sed -E "s/ +/ /g" | cut -f3 -d" " | xargs docker rmi -f $1'
