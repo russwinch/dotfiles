@@ -69,6 +69,9 @@ tsp(){
 # ssh fix
 alias fix-ssh="pushd ~/.ssh && ssh-add -A && popd"
 
+# sonarqube local
+alias sonar="echo '*** Go to http://localhost:9000 ***' && /etc/sonarqube/bin/macosx-universal-64/sonar.sh console"
+
 # docker
 alias remove-docker-images='docker images | tail -n +2 | sed -E "s/ +/ /g" | cut -f3 -d" " | xargs docker rmi -f $1'
 alias remove-docker-containers='docker ps -a | tail -n +2 | sed -E "s/ +/ /g" | cut -f1 -d" " | xargs docker rm -f $1'
