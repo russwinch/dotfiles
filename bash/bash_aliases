@@ -59,18 +59,18 @@ venv(){
 # tmux
 alias ti="tmux new-session -s 'vim' \; split-window -v -p 30 \; attach"
 
-alias sp="tmux split-window -v -p 30"
-
-tsp(){
-    tmux split-window -h -p 66
-    tmux split-window -h -p 50
-}
+alias tsp="tmux split-window -v -p 30"
+alias t2sp="tmux split-window -v -p 30 && tmux split-window -h"
+alias t3sp="tmux split-window -h -p 66 && tmux split-window -h -p 50"
 
 # ssh fix
 alias fix-ssh="pushd ~/.ssh && ssh-add -A && popd"
 
 # sonarqube local
-alias sonar="echo '*** Go to http://localhost:9000 and log in with admin:admin***' && /etc/sonarqube/bin/macosx-universal-64/sonar.sh console"
+alias start-sonar="echo '*** Go to http://localhost:9000 and log in with admin:admin, then run sonar-scan [projectKey]***' && /etc/sonarqube/bin/macosx-universal-64/sonar.sh console"
+sonar-scan(){
+    sonar-scanner -D sonar.projectKey=$1 -D sonar.sources=.
+}
 
 # docker
 alias remove-docker-images='docker images | tail -n +2 | sed -E "s/ +/ /g" | cut -f3 -d" " | xargs docker rmi -f $1'
