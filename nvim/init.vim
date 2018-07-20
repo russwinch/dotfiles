@@ -57,6 +57,7 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+" environmental variable set in .bashrc
 if $LOCATION == 'work'
     set textwidth=88
 else
@@ -71,6 +72,9 @@ set splitright
 
 " i know this is terrible but it is nice to scroll...
 set mouse=a
+
+" Persistent Undo
+set undofile
 
 " LINE NUMERING:-----------------------------------------------------------{{{1
 
@@ -135,8 +139,6 @@ let g:airline#extensions#tabline#enabled = 1
 " Gutentags:---------------------------------------------------------------{{{1
 let g:gutentags_cache_dir = '~/.gutentags/'
 
-" Persistent Undo:---------------------------------------------------------{{{1
-set undofile
 
 " CtrlP:-------------------------------------------------------------------{{{1
 let g:ctrlp_map = '<c-p>'
@@ -252,7 +254,7 @@ tnoremap ˚ <C-\><C-n><C-w>k
 tnoremap ¬ <C-\><C-n><C-w>l
 
 " vim-autoformat
-nnoremap <F3> :Autoformat<CR>
+" nnoremap <F3> :Autoformat<CR>
 
 " vim-run
 nnoremap <F5> :Run<CR>
@@ -277,7 +279,8 @@ nnoremap <leader>jp :%!python -m json.tool<cr>
 vnoremap <leader>jp :%!python -m json.tool<cr>
 
 " Terminal:-----------------------------------------------------------------{{{1
-tnoremap <C-v><Esc> <C-\><C-n>
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-v><Esc> <Esc>
 
 function! OpenVertTerm()
     88vs | te
