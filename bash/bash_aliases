@@ -60,8 +60,8 @@ venv(){
 alias ti="tmux new-session -s 'vim' \; split-window -v -p 30 \; attach"
 
 alias tsp="tmux split-window -v -p 30"
-alias t2sp="tmux split-window -v -p 30 && tmux split-window -h"
-alias t3sp="tmux split-window -h -p 66 && tmux split-window -h -p 50"
+alias tsp2="tmux split-window -v -p 30 && tmux split-window -h"
+alias tsp3="tmux split-window -h -p 66 && tmux split-window -h -p 50"
 
 # ssh fix
 alias fix-ssh="pushd ~/.ssh && ssh-add -A && popd"
