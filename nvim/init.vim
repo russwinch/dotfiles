@@ -246,7 +246,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " nnoremap <c-u> viwUea<ESC>
 "
 " - search & highlighting
-nnoremap <silent> <leader>hn :nohl<cr>
+nnoremap <silent> <leader>hh :nohl<cr>
 
 " navigate between splits
 nmap <Space> <C-w>w
