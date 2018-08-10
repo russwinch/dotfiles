@@ -74,7 +74,7 @@ export PATH="/usr/local/mysql/bin/:$PATH"
 # export PATH=$PATH:/usr/local/mysql/bin/
 
 # added by Anaconda3 4.3.1 installer
-export PATH="/Users/Russ/anaconda/bin:$PATH"
+# export PATH="/Users/Russ/anaconda/bin:$PATH"
 
 # Setting PATH for Python 2.7
 # The original version is saved in .bash_profile.pysave

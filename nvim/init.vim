@@ -110,6 +110,16 @@ set showmatch
 
 let g:SuperTabDefaultCompletionType = "<c-n>" "set order of options to down
 
+" Virtualenv:--------------------------------------------------------------{{{1
+
+" Figure out the system Python for Neovim.
+" if exists("$VIRTUAL_ENV")
+"     let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
+" else
+"     let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
+" endif
+let g:python3_host_prog = '/usr/local/bin/python3'
+
 " Deoplete:----------------------------------------------------------------{{{1
 
 let g:deoplete#enable_at_startup = 1
@@ -121,7 +131,14 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Ale:---------------------------------------------------------------------{{{1
 
-" let g:ale_python_flake8_executable = 'python3'   " or 'python' for Python 2
+if exists("$VIRTUAL_ENV")
+    let g:ale_python_flake8_executable=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
+else
+    let g:ale_python_flake8_executable = 'python3'   " or 'python' for Python 2
+endif
+let g:ale_python_flake8_options = '-m flake8'
+" let g:ale_python_flake8_use_global = 1
+
 let g:ale_linters = {'python': ['flake8']}
 if $LOCATION == 'work'
     let g:ale_python_flake8_options = '--max-line-length 88'
@@ -146,15 +163,6 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_extensions = ['tag']
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-
-" Virtualenv:--------------------------------------------------------------{{{1
-
-" Figure out the system Python for Neovim.
-if exists("$VIRTUAL_ENV")
-    let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
-else
-    let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
-endif
 
 " Remappings:--------------------------------------------------------------{{{1
 
