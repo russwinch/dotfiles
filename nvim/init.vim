@@ -16,6 +16,10 @@ let &packpath = &runtimepath
 " Create a colors directory ~/.config/nvim/colors
 " Create a colors directory and then curl them with -o option to write a file
 
+" Powerline_fonts:
+" Download 'Meslo Slashed' from https://github.com/powerline/fonts
+" Install locally then set iterm non-ascii font to '12pt Meslo LG S Regular for Powerline'
+
 " Vimplug:-----------------------------------------------------------------{{{1
 
 call plug#begin()
@@ -135,13 +139,14 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Ale:---------------------------------------------------------------------{{{1
 
-if exists("$VIRTUAL_ENV")
-    let g:ale_python_flake8_executable=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
-else
-    let g:ale_python_flake8_executable = 'python3'   " or 'python' for Python 2
+if $LOCATION != 'work'
+    if exists("$VIRTUAL_ENV")
+        let g:ale_python_flake8_executable=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
+    else
+        let g:ale_python_flake8_executable = 'python3'   " or 'python' for Python 2
+    endif
+    let g:ale_python_flake8_options = '-m flake8'
 endif
-let g:ale_python_flake8_options = '-m flake8'
-" let g:ale_python_flake8_use_global = 1
 
 let g:ale_linters = {'python': ['flake8']}
 if $LOCATION == 'work'
