@@ -91,11 +91,15 @@ set undofile
 " place in the colors directory ~/.config/nvim/colors using curl -o
 " colorscheme badwolf "https://raw.githubusercontent.com/sjl/badwolf/master/colors/badwolf.vim
 
+set termguicolors
+" set background=light
+" colorscheme fruidle
 set background=dark
 colorscheme molokai "https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
 highlight cursorline ctermbg=236 ctermfg=none
 highlight colorcolumn ctermbg=darkred
 highlight Visual cterm=bold ctermbg=247 ctermfg=NONE
+highlight Comment ctermfg=244
 highlight! link TermCursor Cursor
 highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
 
