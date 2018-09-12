@@ -89,3 +89,6 @@ export PATH
 export PATH="/Users/Russ/.vim/bundle/syntastic.git/syntax_checkers:${PATH}"
 # LC_CTYPE=en_US.UTF-8
 # export LC_CTYPE
+
+# added by Miniconda3 installer
+export PATH="/Users/russellwinch/miniconda3/bin:$PATH"

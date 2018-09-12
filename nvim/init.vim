@@ -8,13 +8,12 @@ let &packpath = &runtimepath
 
 " Plugin_Support:
 " pip3 install neovim flake8 yapf
-" powerline fonts: https://github.com/powerline/fonts
+" powerline fonts: see note below
 " universal c-tags: brew install --HEAD universal-ctags/universal-ctags/universal-ctags
-" create a folder for tags: ~/.gutentags/
 
 " Themes:
 " Create a colors directory ~/.config/nvim/colors
-" Create a colors directory and then curl them with -o option to write a file
+" Curl them with -o option to write a file
 
 " Powerline_fonts:
 " Download 'Meslo Slashed' from https://github.com/powerline/fonts
