@@ -94,7 +94,7 @@ set undofile
 " place in the colors directory ~/.config/nvim/colors using curl -o
 " colorscheme badwolf "https://raw.githubusercontent.com/sjl/badwolf/master/colors/badwolf.vim
 
-set termguicolors
+" set termguicolors
 " set background=light
 " colorscheme fruidle
 set background=dark
