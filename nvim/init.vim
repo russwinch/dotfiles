@@ -10,6 +10,7 @@ let &packpath = &runtimepath
 " pip3 install neovim flake8 yapf
 " powerline fonts: see note below
 " universal c-tags: brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+" brew install ack (if not already installed)
 
 " Themes:
 " Create a colors directory ~/.config/nvim/colors
@@ -138,18 +139,21 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Ale:---------------------------------------------------------------------{{{1
 
-if $LOCATION != 'work'
-    if exists("$VIRTUAL_ENV")
-        let g:ale_python_flake8_executable=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
-    else
-        let g:ale_python_flake8_executable = 'python3'   " or 'python' for Python 2
-    endif
-    let g:ale_python_flake8_options = '-m flake8'
-endif
+" if $LOCATION != 'work'
+"     if exists("$VIRTUAL_ENV")
+"         let g:ale_python_flake8_executable=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
+"     else
+"         let g:ale_python_flake8_executable = 'python3'   " or 'python' for Python 2
+"     endif
+"     let g:ale_python_flake8_options = '-m flake8'
+" endif
+
+" let g:ale_python_flake8_executable = 'python3'   " or 'python' for Python 2
+" let g:ale_python_flake8_options = '-m flake8'
 
 let g:ale_linters = {'python': ['flake8']}
 if $LOCATION == 'work'
-    let g:ale_python_flake8_options = '--max-line-length 88'
+    let g:ale_python_flake8_options = '--max-line-length 88 --ignore E501'
 endif
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
@@ -170,6 +174,7 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_extensions = ['tag']
+let g:ctrlp_switch_buffer = '0'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
 " Remappings:--------------------------------------------------------------{{{1
@@ -219,9 +224,6 @@ inoremap <c-l> <ESC>A
 " exit nested pair to within parent pair:
 inoremap <c-k> <ESC>la
 
-"smash escape
-" inoremap jk <ESC>
-
 " insert blank row
 nnoremap <leader>r o<ESC>
 nnoremap <leader>R O<ESC>
@@ -238,6 +240,7 @@ nnoremap <leader>bd :bn<CR>:bd#<CR>
 
 " navigate between buffers
 nnoremap <leader>b :CtrlPBuffer<cr>
+nnoremap <leader>bb :CtrlPBuffer<cr>
 
 " use relative numbering
 nnoremap <silent> <leader>u <ESC>:set relativenumber!<CR><ESC>
@@ -258,16 +261,17 @@ nnoremap <silent> <leader>hh :nohl<cr>
 
 " navigate between splits
 nmap <Space> <C-w>w
-" - option + h, j, k, l come out as symbols on mac
-nnoremap ˙ <C-w>h
-nnoremap ∆ <C-w>j
-nnoremap ˚ <C-w>k
-nnoremap ¬ <C-w>l
 
-tnoremap ˙ <C-\><C-n><C-w>h
-tnoremap ∆ <C-\><C-n><C-w>j
-tnoremap ˚ <C-\><C-n><C-w>k
-tnoremap ¬ <C-\><C-n><C-w>l
+" - option + h, j, k, l come out as symbols on mac
+" nnoremap ˙ <C-w>h
+" nnoremap ∆ <C-w>j
+" nnoremap ˚ <C-w>k
+" nnoremap ¬ <C-w>l
+
+" tnoremap ˙ <C-\><C-n><C-w>h
+" tnoremap ∆ <C-\><C-n><C-w>j
+" tnoremap ˚ <C-\><C-n><C-w>k
+" tnoremap ¬ <C-\><C-n><C-w>l
 
 " vim-autoformat
 " nnoremap <F3> :Autoformat<CR>
@@ -278,9 +282,9 @@ nnoremap <F5> :Run<CR>
 " copy and paste
 vnoremap <leader>c "*y
 inoremap <leader>c "*yy
+nnoremap <leader>c "*yy
 inoremap <leader>v <ESC>"*pa
 inoremap <leader>V <ESC>"*Pa
-nnoremap <leader>c "*yy
 nnoremap <leader>v "*p
 nnoremap <leader>V "*P
 
@@ -288,12 +292,18 @@ nnoremap <leader>V "*P
 inoremap <leader>td # TODO:
 nnoremap <leader>td o# TODO:
 nnoremap <leader>st Oimport pdb; pdb.set_trace()<ESC>
+nnoremap <leader>ip Ofrom IPython import embed; embed()<ESC>
 nnoremap <leader>ft :Ack pdb<CR>
 
 " pretty print json
 nnoremap <leader>jp :%!python -m json.tool<cr>
 vnoremap <leader>jp :%!python -m json.tool<cr>
 
+" search for selected text from visual mode
+vnoremap // y/<C-R>"<CR>
+
+" navigate through errors
+nnoremap <leader>ee :ALENext<cr>
 " Terminal:-----------------------------------------------------------------{{{1
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-v><Esc> <Esc>
