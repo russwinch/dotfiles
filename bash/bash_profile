@@ -92,3 +92,6 @@ export PATH="/Users/Russ/.vim/bundle/syntastic.git/syntax_checkers:${PATH}"
 
 # added by Miniconda3 installer
 export PATH="/Users/russellwinch/miniconda3/bin:$PATH"
+
+# added by Miniconda3 installer
+export PATH="/Users/russellwinch/miniconda3/bin:$PATH"

@@ -7,7 +7,7 @@ let &packpath = &runtimepath
 " then use :PlugInstall
 
 " Plugin_Support:
-" pip3 install neovim flake8 yapf
+" pip3 install pynvim flake8 yapf
 " powerline fonts: see note below
 " universal c-tags: brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 " brew install ack (if not already installed)
@@ -36,9 +36,23 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mileszs/ack.vim'
 Plug 'christoomey/vim-sort-motion'
+Plug 'alfredodeza/pytest.vim'
+Plug 'machakann/vim-highlightedyank'
+Plug 'airblade/vim-gitgutter'
+" Themes
+Plug 'tomasr/molokai'
+Plug 'sjl/badwolf'
+Plug 'morhetz/gruvbox'
+Plug 'veloce/vim-aldmeris'
+Plug 'nightsense/forgotten'
+Plug 'nightsense/snow'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'ayu-theme/ayu-vim'
+" Plug 'lifepillar/vim-solarized8'
 " Plug 'Chiel92/vim-autoformat'
 " Plug 'kana/vim-textobj-indent'
 " Plug 'kana/vim-textobj-line'
@@ -92,20 +106,26 @@ set undofile
 :augroup END
 
 " Themes:------------------------------------------------------------------{{{1
-" place in the colors directory ~/.config/nvim/colors using curl -o
-" colorscheme badwolf "https://raw.githubusercontent.com/sjl/badwolf/master/colors/badwolf.vim
+" install with plug
+" or place in the colors directory ~/.config/nvim/colors using curl -o
 
-" set termguicolors
+" true color support
+set termguicolors
 " set background=light
-" colorscheme fruidle
 set background=dark
-colorscheme molokai "https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
-highlight cursorline ctermbg=236 ctermfg=none
-highlight colorcolumn ctermbg=darkred
-highlight Visual cterm=bold ctermbg=247 ctermfg=NONE
-highlight Comment ctermfg=244
-highlight! link TermCursor Cursor
-highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
+
+colorscheme molokai
+
+" colorscheme forgotten-dark
+" let g:airline_theme='snow_dark'
+
+" molokai specific adjustments
+" highlight cursorline ctermbg=236 ctermfg=none
+" highlight colorcolumn ctermbg=darkred
+" highlight Visual cterm=bold ctermbg=247 ctermfg=NONE
+" highlight Comment ctermfg=244
+" highlight! link TermCursor Cursor
+" highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
 
 " FINDING AND AUTOCOMPLETE:------------------------------------------------{{{1
 
@@ -118,6 +138,14 @@ set showmatch
 
 let g:SuperTabDefaultCompletionType = "<c-n>" "set order of options to down
 
+" Git:---------------------------------------------------------------------{{{1
+" reduce the lag between vimgutter updates
+set updatetime=100
+
+" Ack:---------------------------------------------------------------------{{{1
+" set default behaviour not to open first result automatically
+cnoreabbrev Ack Ack!
+
 " Virtualenv:--------------------------------------------------------------{{{1
 
 " Figure out the system Python for Neovim.
@@ -126,7 +154,8 @@ let g:SuperTabDefaultCompletionType = "<c-n>" "set order of options to down
 " else
 "     let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
 " endif
-let g:python3_host_prog = '/usr/local/bin/python3'
+" let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python3_host_prog = '/Users/russellwinch/miniconda3/bin/python'
 
 " Deoplete:----------------------------------------------------------------{{{1
 
@@ -153,7 +182,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 let g:ale_linters = {'python': ['flake8']}
 if $LOCATION == 'work'
-    let g:ale_python_flake8_options = '--max-line-length 88 --ignore E501'
+    let g:ale_python_flake8_options = '--max-line-length 88 --ignore E501,W503'
 endif
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
@@ -167,6 +196,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Gutentags:---------------------------------------------------------------{{{1
 let g:gutentags_cache_dir = '~/.gutentags/'
+let g:gutentags_ctags_exclude = ['*.html']
 
 
 " CtrlP:-------------------------------------------------------------------{{{1
@@ -178,10 +208,6 @@ let g:ctrlp_switch_buffer = '0'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
 " Remappings:--------------------------------------------------------------{{{1
-
-" remap the Leader key:
-" let mapleader = ","
-" let maplocalleader = "\\"
 
 " disable the arrow keys:
 " : in NORMAL mode
@@ -203,26 +229,26 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 " vnoremap <down> <Nop>
 
 " quick pairs in INSERT mode
-inoremap <leader>' ''<ESC>i
-inoremap <leader>" ""<ESC>i
-inoremap <leader>* **<ESC>i
-inoremap <leader>( ()<ESC>i
-inoremap <leader>[ []<ESC>i
-inoremap <leader>t[ [  ]<ESC>hi
-inoremap <leader>{ {}<ESC>i
-inoremap <leader>< <><ESC>i
-" surround a word with ... pairs
-nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
-nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
-nnoremap <leader>( viw<esc>a)<esc>hbi(<esc>lel
-nnoremap <leader>{ viw<esc>a}<esc>hbi{<esc>lel
-nnoremap <leader>< viw<esc>a><esc>hbi<<esc>lel
-nnoremap <leader>[ viw<esc>a]<esc>hbi[<esc>lel
-nnoremap <leader>__ viw<esc>a__<esc>hbi__<esc>lel
-" exit pair(s) to end of line:
-inoremap <c-l> <ESC>A
-" exit nested pair to within parent pair:
-inoremap <c-k> <ESC>la
+" inoremap <leader>' ''<ESC>i
+" inoremap <leader>" ""<ESC>i
+" inoremap <leader>* **<ESC>i
+" inoremap <leader>( ()<ESC>i
+" inoremap <leader>[ []<ESC>i
+" inoremap <leader>t[ [  ]<ESC>hi
+" inoremap <leader>{ {}<ESC>i
+" inoremap <leader>< <><ESC>i
+" " surround a word with ... pairs
+" nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
+" nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
+" nnoremap <leader>( viw<esc>a)<esc>hbi(<esc>lel
+" nnoremap <leader>{ viw<esc>a}<esc>hbi{<esc>lel
+" nnoremap <leader>< viw<esc>a><esc>hbi<<esc>lel
+" nnoremap <leader>[ viw<esc>a]<esc>hbi[<esc>lel
+" nnoremap <leader>__ viw<esc>a__<esc>hbi__<esc>lel
+" " exit pair(s) to end of line:
+" inoremap <c-l> <ESC>A
+" " exit nested pair to within parent pair:
+" inoremap <c-k> <ESC>la
 
 " insert blank row
 nnoremap <leader>r o<ESC>
@@ -246,7 +272,7 @@ nnoremap <leader>bb :CtrlPBuffer<cr>
 nnoremap <silent> <leader>u <ESC>:set relativenumber!<CR><ESC>
 inoremap <silent> <leader>u <ESC>:set relativenumber!<CR><ESC>i
 
-" open vimrc in a split for a quick edit
+" open vimrc in a tab for a quick edit
 nnoremap <leader>ev :tabe $MYVIMRC<cr>
 " source the vimrc file
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -304,7 +330,7 @@ vnoremap // y/<C-R>"<CR>
 
 " navigate through errors
 nnoremap <leader>ee :ALENext<cr>
-" Terminal:-----------------------------------------------------------------{{{1
+" Terminal:----------------------------------------------------------------{{{1
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-v><Esc> <Esc>
 
