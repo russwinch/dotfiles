@@ -24,14 +24,15 @@ let &packpath = &runtimepath
 
 call plug#begin()
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets' "contains the acutal snippets for use in ultisnips
-Plug 'ervandew/supertab'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets' "contains the acutal snippets for use in ultisnips
+" Plug 'ervandew/supertab'
 Plug 'w0rp/ale'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'sbdchd/vim-run'
+" Plug 'sbdchd/vim-run'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -114,7 +115,7 @@ set termguicolors
 " set background=light
 set background=dark
 
-colorscheme molokai
+colorscheme gruvbox
 
 " colorscheme forgotten-dark
 " let g:airline_theme='snow_dark'
@@ -194,6 +195,21 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 " set statusline+=%{gutentags#statusline()}
 
+" Lightline:-----------------------------------------------------------------{{{1
+
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'jellybeans',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
+
+
 " Gutentags:---------------------------------------------------------------{{{1
 let g:gutentags_cache_dir = '~/.gutentags/'
 let g:gutentags_ctags_exclude = ['*.html']
@@ -258,8 +274,9 @@ nnoremap <leader>R O<ESC>
 nnoremap <leader>tn :tabnew<CR>
 nnoremap <leader>n :tabn<CR>
 nnoremap <leader>p :tabp<CR>
-nnoremap <leader>bn :bn<CR>
-nnoremap <leader>bp :bp<CR>
+nnoremap <leader>tt :tabedit %<CR>
+" nnoremap <leader>bn :bn<CR>
+" nnoremap <leader>bp :bp<CR>
 
 " delete buffer
 nnoremap <leader>bd :bn<CR>:bd#<CR>
@@ -288,22 +305,11 @@ nnoremap <silent> <leader>hh :nohl<cr>
 " navigate between splits
 nmap <Space> <C-w>w
 
-" - option + h, j, k, l come out as symbols on mac
-" nnoremap ˙ <C-w>h
-" nnoremap ∆ <C-w>j
-" nnoremap ˚ <C-w>k
-" nnoremap ¬ <C-w>l
-
-" tnoremap ˙ <C-\><C-n><C-w>h
-" tnoremap ∆ <C-\><C-n><C-w>j
-" tnoremap ˚ <C-\><C-n><C-w>k
-" tnoremap ¬ <C-\><C-n><C-w>l
-
 " vim-autoformat
 " nnoremap <F3> :Autoformat<CR>
 
 " vim-run
-nnoremap <F5> :Run<CR>
+" nnoremap <F5> :Run<CR>
 
 " copy and paste
 vnoremap <leader>c "*y
