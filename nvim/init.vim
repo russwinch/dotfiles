@@ -11,10 +11,12 @@ let &packpath = &runtimepath
 " powerline fonts: see note below
 " universal c-tags: brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 " brew install ack (if not already installed)
+" brew install fzf (if not already installed)
 
 " Themes:
 " Create a colors directory ~/.config/nvim/colors
 " Curl them with -o option to write a file
+" or just install with Vimplug :)
 
 " Powerline_fonts:
 " Download 'Meslo Slashed' from https://github.com/powerline/fonts
@@ -31,7 +33,9 @@ Plug 'itchyny/lightline.vim'
 " Plug 'honza/vim-snippets' "contains the acutal snippets for use in ultisnips
 " Plug 'ervandew/supertab'
 Plug 'w0rp/ale'
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 " Plug 'sbdchd/vim-run'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -195,7 +199,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 " set statusline+=%{gutentags#statusline()}
 
-" Lightline:-----------------------------------------------------------------{{{1
+" Lightline:---------------------------------------------------------------{{{1
 
 set noshowmode
 let g:lightline = {
@@ -223,6 +227,10 @@ let g:ctrlp_extensions = ['tag']
 let g:ctrlp_switch_buffer = '0'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
+" fzf:---------------------------------------------------------------------{{{1
+nnoremap <C-p> :Files<Cr>
+nnoremap <leader>bb :Buffers<Cr>
+nnoremap <leader>w :Windows<Cr>
 " Remappings:--------------------------------------------------------------{{{1
 
 " disable the arrow keys:
@@ -282,17 +290,17 @@ nnoremap <leader>tt :tabedit %<CR>
 nnoremap <leader>bd :bn<CR>:bd#<CR>
 
 " navigate between buffers
-nnoremap <leader>b :CtrlPBuffer<cr>
-nnoremap <leader>bb :CtrlPBuffer<cr>
+" nnoremap <leader>b :CtrlPBuffer<cr>
+" nnoremap <leader>bb :CtrlPBuffer<cr>
 
 " use relative numbering
 nnoremap <silent> <leader>u <ESC>:set relativenumber!<CR><ESC>
 inoremap <silent> <leader>u <ESC>:set relativenumber!<CR><ESC>i
 
 " open vimrc in a tab for a quick edit
-nnoremap <leader>ev :tabe $MYVIMRC<cr>
+nnoremap <leader>ve :tabe $MYVIMRC<cr>
 " source the vimrc file
-nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>vs :source $MYVIMRC<cr>
 "
 " -all-caps & continue in INSERT mode
 " inoremap <c-u> <esc>viwUea
@@ -335,7 +343,12 @@ vnoremap <leader>jp :%!python -m json.tool<cr>
 vnoremap // y/<C-R>"<CR>
 
 " navigate through errors
-nnoremap <leader>ee :ALENext<cr>
+nnoremap <leader>e :ALENext<cr>
+nnoremap <leader>E :ALEPrevious<cr>
+nnoremap <silent>]e :ALENext<cr>
+nnoremap <silent>[e :ALEPrevious<cr>
+nnoremap <silent>[E :ALEFirst<cr>
+nnoremap <silent>]E :ALELast<cr>
 " Terminal:----------------------------------------------------------------{{{1
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-v><Esc> <Esc>
