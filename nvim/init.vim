@@ -11,6 +11,8 @@ let &packpath = &runtimepath
 " powerline fonts: see note below
 " universal c-tags: brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 " brew install ack (if not already installed)
+"       or
+" brew install the_silver_searcher (configure choice below)
 " brew install fzf (if not already installed)
 
 " Themes:
@@ -147,8 +149,10 @@ set updatetime=100
 " Ack:---------------------------------------------------------------------{{{1
 " set default behaviour not to open first result automatically
 cnoreabbrev Ack Ack!
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " Virtualenv:--------------------------------------------------------------{{{1
+" This is still a mess and needs a proper solution to be determined
 
 " Figure out the system Python for Neovim.
 " if exists("$VIRTUAL_ENV")
@@ -162,11 +166,6 @@ let g:python3_host_prog = '/Users/russellwinch/miniconda3/bin/python'
 " Deoplete:----------------------------------------------------------------{{{1
 
 let g:deoplete#enable_at_startup = 1
-
-" UltiSnips:---------------------------------------------------------------{{{1
-
-let g:UltiSnipsExpandTrigger="<C-j>"
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Ale:---------------------------------------------------------------------{{{1
 
@@ -247,6 +246,7 @@ nnoremap <leader>vs :source $MYVIMRC<cr>
 nnoremap <silent> <leader>hh :nohl<cr>
 
 " navigate between splits
+nmap <silent><Space> <C-w>w
 
 " copy and paste
 vnoremap <leader>c "*y
@@ -262,7 +262,7 @@ inoremap <leader>td # TODO:
 nnoremap <leader>td o# TODO:
 nnoremap <leader>st Oimport pdb; pdb.set_trace()<ESC>
 nnoremap <leader>ip Ofrom IPython import embed; embed()<ESC>
-nnoremap <leader>ft :Ack pdb<CR>
+nnoremap <leader>ft :Ack! pdb<CR>
 
 " pretty print json
 nnoremap <leader>jp :%!python -m json.tool<cr>
@@ -279,8 +279,11 @@ nnoremap <silent>[e :ALEPrevious<cr>
 nnoremap <silent>[E :ALEFirst<cr>
 nnoremap <silent>]E :ALELast<cr>
 " Terminal:----------------------------------------------------------------{{{1
-tnoremap <Esc> <C-\><C-n>
-tnoremap <C-v><Esc> <Esc>
+" tnoremap <Esc> <C-\><C-n>
+" tnoremap <C-v><Esc> <Esc>
+" the above intefers with fzf so use:
+au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
+au FileType fzf tunmap <buffer> <Esc>
 
 function! OpenVertTerm()
     88vs | te
@@ -302,6 +305,7 @@ nnoremap <leader>teh :call OpenHorzTerm()<cr>
 
 " highlight Foldcolumn ctermfg=Darkgrey ctermbg=0 cterm=BOLD
 " highlight Folded ctermfg=Darkgrey ctermbg=NONE cterm=none
+set foldcolumn=2
 set foldmethod=marker
 set foldlevelstart=0
 
