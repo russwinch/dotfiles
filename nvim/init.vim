@@ -160,8 +160,11 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 " else
 "     let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
 " endif
-" let g:python3_host_prog = '/usr/local/bin/python3'
-let g:python3_host_prog = '/Users/russellwinch/miniconda3/bin/python'
+if $LOCATION == 'work'
+    let g:python3_host_prog = '/Users/russellwinch/miniconda3/bin/python'
+else
+    let g:python3_host_prog = '/usr/local/bin/python3'
+endif
 
 " Deoplete:----------------------------------------------------------------{{{1
 
