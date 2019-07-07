@@ -53,7 +53,7 @@ alias ni="nvim"
 
 # virtualenvs
 venv(){
-    source activate $1
+    source ~/Documents/venvs/$1/bin/activate
 }
 
 # tmux
