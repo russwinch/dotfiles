@@ -66,8 +66,8 @@ HISTFILESIZE="2000"
 # Add `killall` tab completion for common apps
 #complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
 
-export EDITOR="vim"
-export VISUAL="vim"
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 # mysql
 export PATH="/usr/local/mysql/bin/:$PATH"
