@@ -26,17 +26,10 @@ let &packpath = &runtimepath
 
 call plug#begin()
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 Plug 'itchyny/lightline.vim'
-" Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets' "contains the acutal snippets for use in ultisnips
-" Plug 'ervandew/supertab'
 Plug 'w0rp/ale'
-" Plug 'ctrlpvim/ctrlp.vim'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-" Plug 'sbdchd/vim-run'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -48,6 +41,15 @@ Plug 'christoomey/vim-sort-motion'
 Plug 'alfredodeza/pytest.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'airblade/vim-gitgutter'
+Plug 'ervandew/supertab'
+" Unused, may reinstall
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+" Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'sbdchd/vim-run'
+" Plug 'Chiel92/vim-autoformat'
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets' "contains the acutal snippets for use in ultisnips
 " Themes
 Plug 'tomasr/molokai'
 Plug 'sjl/badwolf'
@@ -58,11 +60,8 @@ Plug 'nightsense/snow'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'ayu-theme/ayu-vim'
 " Plug 'lifepillar/vim-solarized8'
-" Plug 'Chiel92/vim-autoformat'
 " Plug 'kana/vim-textobj-indent'
 " Plug 'kana/vim-textobj-line'
-" Plug 'ambv/black'
-" Plug 'zchee/deoplete-jedi'
 call plug#end()
 
 " BASIC SETTNGS:-----------------------------------------------------------{{{1
@@ -100,7 +99,6 @@ set mouse=a
 set undofile
 
 " LINE NUMERING:-----------------------------------------------------------{{{1
-
 " set number
 :set number relativenumber
 
@@ -133,7 +131,6 @@ colorscheme gruvbox
 " highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
 
 " FINDING AND AUTOCOMPLETE:------------------------------------------------{{{1
-
 set wildmenu
 set ignorecase
 set smartcase
@@ -193,12 +190,6 @@ let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
 let g:ale_sign_column_always = 1
 
-" AIRLINE:-----------------------------------------------------------------{{{1
-
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-" set statusline+=%{gutentags#statusline()}
-
 " Lightline:---------------------------------------------------------------{{{1
 
 set noshowmode
@@ -218,62 +209,16 @@ let g:lightline = {
 let g:gutentags_cache_dir = '~/.gutentags/'
 let g:gutentags_ctags_exclude = ['*.html']
 
+" SuperTab:----------------------------------------------------------------{{{1
 
-" CtrlP:-------------------------------------------------------------------{{{1
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_extensions = ['tag']
-let g:ctrlp_switch_buffer = '0'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+let g:SuperTabDefaultCompletionType = "<c-n>" "set order of options to down
 
 " fzf:---------------------------------------------------------------------{{{1
 nnoremap <C-p> :Files<Cr>
 nnoremap <leader>bb :Buffers<Cr>
 nnoremap <leader>w :Windows<Cr>
+
 " Remappings:--------------------------------------------------------------{{{1
-
-" disable the arrow keys:
-" : in NORMAL mode
-" noremap <up> <Nop>
-" noremap <left> <Nop>
-" noremap <right> <Nop>
-" noremap <down> <Nop>
-
-" : in INSERT mode
-" inoremap <up> <Nop>
-" inoremap <left> <Nop>
-" inoremap <right> <Nop>
-" inoremap <down> <Nop>
-
-" : in VISUAL mode
-" vnoremap <up> <Nop>
-" vnoremap <left> <Nop>
-" vnoremap <right> <Nop>
-" vnoremap <down> <Nop>
-
-" quick pairs in INSERT mode
-" inoremap <leader>' ''<ESC>i
-" inoremap <leader>" ""<ESC>i
-" inoremap <leader>* **<ESC>i
-" inoremap <leader>( ()<ESC>i
-" inoremap <leader>[ []<ESC>i
-" inoremap <leader>t[ [  ]<ESC>hi
-" inoremap <leader>{ {}<ESC>i
-" inoremap <leader>< <><ESC>i
-" " surround a word with ... pairs
-" nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
-" nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
-" nnoremap <leader>( viw<esc>a)<esc>hbi(<esc>lel
-" nnoremap <leader>{ viw<esc>a}<esc>hbi{<esc>lel
-" nnoremap <leader>< viw<esc>a><esc>hbi<<esc>lel
-" nnoremap <leader>[ viw<esc>a]<esc>hbi[<esc>lel
-" nnoremap <leader>__ viw<esc>a__<esc>hbi__<esc>lel
-" " exit pair(s) to end of line:
-" inoremap <c-l> <ESC>A
-" " exit nested pair to within parent pair:
-" inoremap <c-k> <ESC>la
-
 " insert blank row
 nnoremap <leader>r o<ESC>
 nnoremap <leader>R O<ESC>
@@ -289,10 +234,6 @@ nnoremap <leader>tt :tabedit %<CR>
 " delete buffer
 nnoremap <leader>bd :bn<CR>:bd#<CR>
 
-" navigate between buffers
-" nnoremap <leader>b :CtrlPBuffer<cr>
-" nnoremap <leader>bb :CtrlPBuffer<cr>
-
 " use relative numbering
 nnoremap <silent> <leader>u <ESC>:set relativenumber!<CR><ESC>
 inoremap <silent> <leader>u <ESC>:set relativenumber!<CR><ESC>i
@@ -301,23 +242,11 @@ inoremap <silent> <leader>u <ESC>:set relativenumber!<CR><ESC>i
 nnoremap <leader>ve :tabe $MYVIMRC<cr>
 " source the vimrc file
 nnoremap <leader>vs :source $MYVIMRC<cr>
-"
-" -all-caps & continue in INSERT mode
-" inoremap <c-u> <esc>viwUea
-" -all-caps & continue in NORMAL mode
-" nnoremap <c-u> viwUea<ESC>
-"
+
 " - search & highlighting
 nnoremap <silent> <leader>hh :nohl<cr>
 
 " navigate between splits
-nmap <Space> <C-w>w
-
-" vim-autoformat
-" nnoremap <F3> :Autoformat<CR>
-
-" vim-run
-" nnoremap <F5> :Run<CR>
 
 " copy and paste
 vnoremap <leader>c "*y
@@ -371,9 +300,8 @@ nnoremap <leader>teh :call OpenHorzTerm()<cr>
 
 " Folding:-----------------------------------------------------------------{{{1
 
-highlight Foldcolumn ctermfg=Darkgrey ctermbg=0 cterm=BOLD
-highlight Folded ctermfg=Darkgrey ctermbg=NONE cterm=none
-set foldcolumn=4
+" highlight Foldcolumn ctermfg=Darkgrey ctermbg=0 cterm=BOLD
+" highlight Folded ctermfg=Darkgrey ctermbg=NONE cterm=none
 set foldmethod=marker
 set foldlevelstart=0
 
@@ -393,5 +321,26 @@ function! MyFoldText()  "  {{{2
 endfunction  "  2}}}
 
 set foldtext=MyFoldText()
+" Deprecated:--------------------------------------------------------------{{{1
+" CtrlP:-------------------------------------------------------------------{{{2
+" let g:ctrlp_map = '<c-p>'
+" let g:ctrlp_cmd = 'CtrlP'
+" let g:ctrlp_match_window = 'bottom,order:ttb'
+" let g:ctrlp_extensions = ['tag']
+" let g:ctrlp_switch_buffer = '0'
+" set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+"
+" navigate between buffers
+" nnoremap <leader>b :CtrlPBuffer<cr>
+" nnoremap <leader>bb :CtrlPBuffer<cr>
+
+" AIRLINE:-----------------------------------------------------------------{{{2
+
+" let g:airline_powerline_fonts = 1
+" let g:airline#extensions#tabline#enabled = 1
+" UltiSnips:---------------------------------------------------------------{{{2
+
+" let g:UltiSnipsExpandTrigger="<C-j>"
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " end of vimrc
