@@ -73,9 +73,6 @@ export VISUAL="nvim"
 export PATH="/usr/local/mysql/bin/:$PATH"
 # export PATH=$PATH:/usr/local/mysql/bin/
 
-# added by Anaconda3 4.3.1 installer
-# export PATH="/Users/Russ/anaconda/bin:$PATH"
-
 # Setting PATH for Python 2.7
 # The original version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
@@ -90,8 +87,4 @@ export PATH="/Users/Russ/.vim/bundle/syntastic.git/syntax_checkers:${PATH}"
 # LC_CTYPE=en_US.UTF-8
 # export LC_CTYPE
 
-# added by Miniconda3 installer
-export PATH="/Users/russellwinch/miniconda3/bin:$PATH"
-
-# added by Miniconda3 installer
-export PATH="/Users/russellwinch/miniconda3/bin:$PATH"
+. /Users/russellwinch/miniconda3/etc/profile.d/conda.sh
