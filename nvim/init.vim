@@ -100,6 +100,9 @@ set mouse=a
 " Persistent Undo
 set undofile
 
+" diff is vertical by default
+set diffopt+=vertical
+
 " LINE NUMERING:-----------------------------------------------------------{{{1
 " set number
 :set number relativenumber
@@ -281,6 +284,9 @@ nnoremap <silent>]e :ALENext<cr>
 nnoremap <silent>[e :ALEPrevious<cr>
 nnoremap <silent>[E :ALEFirst<cr>
 nnoremap <silent>]E :ALELast<cr>
+
+" update all git guttters after a commit
+nnoremap <leader>gg :GitGutterAll<cr>
 " Terminal:----------------------------------------------------------------{{{1
 " tnoremap <Esc> <C-\><C-n>
 " tnoremap <C-v><Esc> <Esc>
