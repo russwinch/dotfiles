@@ -241,7 +241,7 @@ nnoremap <leader>bd :bn<CR>:bd#<CR>
 
 " use relative numbering
 nnoremap <silent> <leader>u <ESC>:set relativenumber!<CR><ESC>
-inoremap <silent> <leader>u <ESC>:set relativenumber!<CR><ESC>i
+" inoremap <silent> <leader>u <ESC>:set relativenumber!<CR><ESC>i
 
 " open vimrc in a tab for a quick edit
 nnoremap <leader>ve :tabe $MYVIMRC<cr>
