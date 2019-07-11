@@ -18,10 +18,10 @@ for file in ~/.dotfiles/bash/{path,bash_prompt,exports,bash_aliases,functions,ex
 done;
 unset file;
 
-# git completion:
-if [ -f ~/.git-completion.bash ]; then
-    source ~/.git-completion.bash
-fi
+# # git completion:
+# if [ -f ~/.git-completion.bash ]; then
+#     source ~/.git-completion.bash
+# fi
 
 # Case-insensitive globbing (used in pathname expansion)
 #shopt -s nocaseglob;
@@ -33,6 +33,9 @@ HISTCONTROL="erasedups:ignoreboth"
 HISTIGNORE="clear:exit:cd:pwd:ls:la:ll:lf:lx:history"
 HISTSIZE="1000"
 HISTFILESIZE="2000"
+
+Shell only exits after the 5th consecutive Ctrl-d
+IGNOREEOF=5
 
 # Autocorrect typos in path names when using `cd`
 #shopt -s cdspell;
@@ -83,7 +86,7 @@ PATH="/etc/sonar-scanner/bin:${PATH}"
 export PATH
 
 # Setting path for syntasic checkers
-export PATH="/Users/Russ/.vim/bundle/syntastic.git/syntax_checkers:${PATH}"
+# export PATH="/Users/Russ/.vim/bundle/syntastic.git/syntax_checkers:${PATH}"
 # LC_CTYPE=en_US.UTF-8
 # export LC_CTYPE
 
