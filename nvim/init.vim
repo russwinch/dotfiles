@@ -101,7 +101,7 @@ set mouse=a
 set undofile
 
 " diff is vertical by default
-set diffopt+=vertical
+" set diffopt+=vertical
 
 " LINE NUMERING:-----------------------------------------------------------{{{1
 " set number
@@ -148,6 +148,7 @@ let g:SuperTabDefaultCompletionType = "<c-n>" "set order of options to down
 " Git:---------------------------------------------------------------------{{{1
 " reduce the lag between vimgutter updates
 set updatetime=100
+command Gadiff Gdiff :1:% | Gvdiff<CR>
 
 " Ack:---------------------------------------------------------------------{{{1
 " set default behaviour not to open first result automatically
