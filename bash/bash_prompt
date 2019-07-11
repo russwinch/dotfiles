@@ -14,7 +14,7 @@ if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
     source $HOME/.bash-git-prompt/gitprompt.sh
 fi
 
-GIT_PROMPT_THEME=Single_line_Dark
+GIT_PROMPT_THEME=Custom
 
 
 # prompt_git() {
