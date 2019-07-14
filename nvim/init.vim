@@ -62,8 +62,6 @@ Plug 'nightsense/snow'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'ayu-theme/ayu-vim'
 " Plug 'lifepillar/vim-solarized8'
-" Plug 'kana/vim-textobj-indent'
-" Plug 'kana/vim-textobj-line'
 call plug#end()
 
 " Basic settngs:-----------------------------------------------------------{{{1
