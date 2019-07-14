@@ -71,7 +71,7 @@ call plug#end()
 syntax enable
 set shortmess+=Iw
 set list
-set showbreak=↳\ 
+set showbreak=↳\
 set visualbell
 set cursorline
 set title
@@ -104,7 +104,7 @@ set undofile
 " set diffopt+=vertical
 
 " live substitute preview. change to split if changes are off screen
-:set inccommand=nosplit
+set inccommand=nosplit
 
 " Line numbers:------------------------------------------------------------{{{1
 :set number relativenumber
@@ -289,6 +289,10 @@ nnoremap <silent>]E :ALELast<cr>
 
 " update all git guttters after a commit
 nnoremap <leader>gg :GitGutterAll<cr>
+
+" remove trailing white spaces from lines
+nnoremap <silent><leader>tw :%s/\s\+$//e<cr>
+
 " Terminal:----------------------------------------------------------------{{{1
 " tnoremap <Esc> <C-\><C-n>
 tnoremap <C-v><Esc> <Esc>
