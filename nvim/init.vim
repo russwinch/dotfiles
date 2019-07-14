@@ -66,7 +66,7 @@ Plug 'ayu-theme/ayu-vim'
 " Plug 'kana/vim-textobj-line'
 call plug#end()
 
-" BASIC SETTNGS:-----------------------------------------------------------{{{1
+" Basic settngs:-----------------------------------------------------------{{{1
 
 syntax enable
 set shortmess+=Iw
@@ -94,7 +94,7 @@ set splitbelow
 set splitright
 " set hidden
 
-" i know this is terrible but it is nice to scroll...
+" I know this is terrible but it is nice to scroll...
 set mouse=a
 
 " Persistent Undo
@@ -103,8 +103,10 @@ set undofile
 " diff is vertical by default
 " set diffopt+=vertical
 
-" LINE NUMERING:-----------------------------------------------------------{{{1
-" set number
+" live substitute preview. change to split if changes are off screen
+:set inccommand=nosplit
+
+" Line numbers:------------------------------------------------------------{{{1
 :set number relativenumber
 
 :augroup numbertoggle
@@ -135,7 +137,7 @@ colorscheme gruvbox
 " highlight! link TermCursor Cursor
 " highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
 
-" FINDING AND AUTOCOMPLETE:------------------------------------------------{{{1
+" Finding and autocomplete:------------------------------------------------{{{1
 set wildmenu
 set ignorecase
 set smartcase
@@ -209,7 +211,6 @@ let g:lightline = {
       \   'gitbranch': 'fugitive#head'
       \ },
       \ }
-
 
 " Gutentags:---------------------------------------------------------------{{{1
 let g:gutentags_cache_dir = '~/.gutentags/'
