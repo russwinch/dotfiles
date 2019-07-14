@@ -148,7 +148,7 @@ let g:SuperTabDefaultCompletionType = "<c-n>" "set order of options to down
 " Git:---------------------------------------------------------------------{{{1
 " reduce the lag between vimgutter updates
 set updatetime=100
-command Gadiff Gdiff :1:% | Gvdiff<CR>
+" command Gadiff Gdiff :1:% | Gvdiff<CR>
 
 " Ack:---------------------------------------------------------------------{{{1
 " set default behaviour not to open first result automatically
@@ -290,7 +290,7 @@ nnoremap <silent>]E :ALELast<cr>
 nnoremap <leader>gg :GitGutterAll<cr>
 " Terminal:----------------------------------------------------------------{{{1
 " tnoremap <Esc> <C-\><C-n>
-" tnoremap <C-v><Esc> <Esc>
+tnoremap <C-v><Esc> <Esc>
 " the above intefers with fzf so use:
 au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
 au FileType fzf tunmap <buffer> <Esc>
