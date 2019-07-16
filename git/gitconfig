@@ -4,6 +4,7 @@
 
 [alias]
 	adog = log --oneline --decorate --all --graph
+	olog = log --oneline
 [rerere]
 	enabled = true
 [merge]
