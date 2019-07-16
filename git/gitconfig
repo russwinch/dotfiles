@@ -1,0 +1,14 @@
+; add this line to .gitconfig
+; [include]
+;     path = ~/.dotfiles/git/gitconfig
+
+[alias]
+	adog = log --oneline --decorate --all --graph
+[rerere]
+	enabled = true
+[merge]
+	tool = vimdiff
+[mergetool "vimdiff"]
+	path = nvim
+[mergetool]
+	keepBackup = false
