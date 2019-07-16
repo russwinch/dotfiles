@@ -288,6 +288,9 @@ nnoremap <silent>]E :ALELast<cr>
 " update all git guttters after a commit
 nnoremap <leader>gg :GitGutterAll<cr>
 
+" open 4 way git diff
+nnoremap <leader>gd :Gsplit :1:%<cr> <C-w>W  :Gvdiff!<cr>
+
 " remove trailing white spaces from lines
 nnoremap <silent><leader>tw :%s/\s\+$//e<cr>
 
