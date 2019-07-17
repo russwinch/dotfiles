@@ -141,6 +141,15 @@ set ignorecase
 set smartcase
 set showmatch
 
+" File Explorer:-----------------------------------------------------------{{{1
+
+" open in a split with :Vex
+" open in previous window with P
+" resume exploring with :Rex
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_winsize = 25
+
 " SuperTab:----------------------------------------------------------------{{{1
 
 let g:SuperTabDefaultCompletionType = "<c-n>" "set order of options to down
@@ -293,6 +302,9 @@ nnoremap <leader>gd :Gsplit :1:%<cr> <C-w>W  :Gvdiff!<cr>
 
 " remove trailing white spaces from lines
 nnoremap <silent><leader>tw :%s/\s\+$//e<cr>
+
+" toggle left explorer
+nnoremap <silent><leader>l :Lexplore<cr>
 
 " Terminal:----------------------------------------------------------------{{{1
 " tnoremap <Esc> <C-\><C-n>
