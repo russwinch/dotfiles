@@ -15,6 +15,23 @@ let &packpath = &runtimepath
 " brew install the_silver_searcher (configure choice below)
 " brew install fzf (if not already installed)
 
+" Updating_netrw:
+" check latest version with :echo g:loaded_netrwPlugin
+" clean existing version:
+"   ni http://www.drchip.org/astronaut/vim/vbafiles/netrwclean.vba.gz
+"   :packadd vimball
+"   :UseVimball ~/.dotfiles/nvim/local-plugs/netrwclean
+"   :NetrwClean
+" exit vim and then get and install the latest version of netrw:
+"   it's not possible to open from the url as netrw is uninstalled :/
+"   curl http://www.drchip.org/astronaut/vim/vbafiles/netrw.vba.gz -o ~/Downloads/netrw.vba.gz
+"   ni ~/Downoads/netrw.vba.gz
+"   :packadd vimball
+"   :UseVimball ~/.dotfiles/nvim/local-plugs/netrw
+" it should now be picked up by vim-plug by adding the following:
+"   Plug '~/.dotfiles/nvim/local-plugs/netrw'
+"
+
 " Themes:
 " Create a colors directory ~/.config/nvim/colors
 " Curl them with -o option to write a file
@@ -27,6 +44,7 @@ let &packpath = &runtimepath
 " Vimplug:-----------------------------------------------------------------{{{1
 
 call plug#begin()
+Plug '~/.dotfiles/nvim/local-plugs/netrw'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'itchyny/lightline.vim'
 Plug 'w0rp/ale'
