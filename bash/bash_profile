@@ -72,6 +72,8 @@ IGNOREEOF=5
 export EDITOR="nvim"
 export VISUAL="nvim"
 
+export FZF_DEFAULT_COMMAND='ag -g ""'
+
 # mysql
 export PATH="/usr/local/mysql/bin/:$PATH"
 # export PATH=$PATH:/usr/local/mysql/bin/
