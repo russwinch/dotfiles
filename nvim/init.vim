@@ -266,6 +266,12 @@ nnoremap <leader>tt :tabedit %<CR>
 " delete buffer
 nnoremap <leader>bd :bn<CR>:bd#<CR>
 
+" reload all buffers with syntax highlighting
+nnoremap <leader>br :execute 'bufdo :e' <bar> source $VIMRUNTIME/syntax/syntax.vim<cr>
+
+" check for changes on disk for all buffers
+nnoremap <leader>bc :checktime<cr>
+
 " use relative numbering
 nnoremap <silent> <leader>u <ESC>:set relativenumber!<CR><ESC>
 " inoremap <silent> <leader>u <ESC>:set relativenumber!<CR><ESC>i
