@@ -56,13 +56,13 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'mileszs/ack.vim'
 Plug 'christoomey/vim-sort-motion'
 Plug 'alfredodeza/pytest.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'airblade/vim-gitgutter'
 Plug 'ervandew/supertab'
 " Unused, may reinstall
+" Plug 'mileszs/ack.vim'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 " Plug 'ctrlpvim/ctrlp.vim'
@@ -176,11 +176,6 @@ let g:SuperTabDefaultCompletionType = "<c-n>" "set order of options to down
 " reduce the lag between vimgutter updates
 set updatetime=100
 " command Gadiff Gdiff :1:% | Gvdiff<CR>
-
-" Ack:---------------------------------------------------------------------{{{1
-" set default behaviour not to open first result automatically
-cnoreabbrev Ack Ack!
-let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " Virtualenv:--------------------------------------------------------------{{{1
 " This is still a mess and needs a proper solution to be determined
@@ -398,5 +393,10 @@ set foldtext=MyFoldText()
 
 " let g:UltiSnipsExpandTrigger="<C-j>"
 " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" Ack:---------------------------------------------------------------------{{{2
+" set default behaviour not to open first result automatically
+cnoreabbrev Ack Ack!
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
 
 " end of vimrc
