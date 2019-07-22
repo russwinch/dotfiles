@@ -95,3 +95,9 @@ export PATH
 if [ "$LOCATION" = work ]; then
     . /Users/russellwinch/miniconda3/etc/profile.d/conda.sh
 fi
+
+# pyvenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
