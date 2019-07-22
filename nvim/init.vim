@@ -178,19 +178,9 @@ set updatetime=100
 " command Gadiff Gdiff :1:% | Gvdiff<CR>
 
 " Virtualenv:--------------------------------------------------------------{{{1
-" This is still a mess and needs a proper solution to be determined
 
-" Figure out the system Python for Neovim.
-" if exists("$VIRTUAL_ENV")
-"     let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
-" else
-"     let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
-" endif
-if $LOCATION == 'work'
-    let g:python3_host_prog = '/Users/russellwinch/miniconda3/bin/python'
-else
-    let g:python3_host_prog = '/usr/local/bin/python3'
-endif
+" install pynvim, flake8, pytest into thid venv
+let g:python3_host_prog = '~/Documents/venvs/nvim/bin/python3'
 
 " Deoplete:----------------------------------------------------------------{{{1
 
@@ -198,21 +188,12 @@ let g:deoplete#enable_at_startup = 1
 
 " Ale:---------------------------------------------------------------------{{{1
 
-" if $LOCATION != 'work'
-"     if exists("$VIRTUAL_ENV")
-"         let g:ale_python_flake8_executable=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
-"     else
-"         let g:ale_python_flake8_executable = 'python3'   " or 'python' for Python 2
-"     endif
-"     let g:ale_python_flake8_options = '-m flake8'
-" endif
-
-" let g:ale_python_flake8_executable = 'python3'   " or 'python' for Python 2
-" let g:ale_python_flake8_options = '-m flake8'
-
 let g:ale_linters = {'python': ['flake8']}
 if $LOCATION == 'work'
+    let g:ale_python_flake8_executable = '/Users/russellwinch/Documents/venvs/nvim/bin/flake8'
     let g:ale_python_flake8_options = '--max-line-length 88 --ignore E501,W503'
+else
+    let g:ale_python_flake8_executable = '/Users/Russ/Documents/venvs/nvim/bin/flake8'
 endif
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
