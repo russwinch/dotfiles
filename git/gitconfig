@@ -1,4 +1,4 @@
-; add this line to .gitconfig
+; add these lines to ~/.gitconfig
 ; [include]
 ;     path = ~/.dotfiles/git/gitconfig
 
@@ -14,3 +14,5 @@
 	path = nvim
 [mergetool]
 	keepBackup = false
+[core]
+	excludesfile = ~/.dotfiles/git/gitignore_global
