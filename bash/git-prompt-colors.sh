@@ -17,10 +17,10 @@ override_git_prompt_colors() {
   # GIT_PROMPT_MASTER_BRANCH="${GIT_PROMPT_BRANCH}" # used if the git branch that is active in the current directory is $GIT_PROMPT_MASTER_BRANCHES
   GIT_PROMPT_STAGED="${Yellow}●"           # the number of staged files/directories
   # GIT_PROMPT_CONFLICTS="${Red}✖ "       # the number of files in conflict
-  GIT_PROMPT_CHANGED="${White}✚ "        # the number of changed files
+  GIT_PROMPT_CHANGED="${Cyan}✚ "        # the number of changed files
 
   # GIT_PROMPT_REMOTE=" "                 # the remote branch name (if any) and the symbols for ahead and behind
-  # GIT_PROMPT_UNTRACKED="${Cyan}…"       # the number of untracked files/dirs
+  GIT_PROMPT_UNTRACKED="${Magenta}…"       # the number of untracked files/dirs
   GIT_PROMPT_STASHED="${BoldGreen}⚑ "    # the number of stashed files/dir
   # GIT_PROMPT_CLEAN="${BoldGreen}✔"      # a colored flag indicating a "clean" repo
 
@@ -44,7 +44,7 @@ override_git_prompt_colors() {
   GIT_PROMPT_UPSTREAM=" {${Green}_UPSTREAM_${ResetColor}}"
 
   ## _LAST_COMMAND_INDICATOR_ will be replaced by the appropriate GIT_PROMPT_COMMAND_OK OR GIT_PROMPT_COMMAND_FAIL
-  GIT_PROMPT_START_USER="\! ${Green}\u \t ${White}${PathShort}${ResetColor}"
+  GIT_PROMPT_START_USER="${Green}\u \t ${White}${PathShort}${ResetColor}"
   # GIT_PROMPT_START_ROOT="_LAST_COMMAND_INDICATOR_ ${GIT_PROMPT_START_USER}"
   GIT_PROMPT_END_USER=" \n$ "
   GIT_PROMPT_END_ROOT=" \n# "

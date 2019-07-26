@@ -128,7 +128,7 @@ GIT_PROMPT_THEME=Custom
 
 
 # export PS1="\[\033[033m\]\u\[\033[m\]:\[\033[32m\]\h @ \t \[\033[33;1m\]\w\[\033[m\]\n\$ "
-export PS1="\!\[\033[0;32m\] \u \t\[\033[0m\] \w\n\$ "
+export PS1="\[\033[0;32m\]\u \t\[\033[0m\] \w\n\$ "
 export CLICOLOR=1
 export LSCOLORS=ExGxcxdxBxegedabagacad
 # alias ls='ls -GFh'
