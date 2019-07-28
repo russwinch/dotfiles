@@ -57,10 +57,10 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'christoomey/vim-sort-motion'
-Plug 'alfredodeza/pytest.vim'
+Plug 'alfredodeza/pytest.vim', {'for': 'python'}
 Plug 'machakann/vim-highlightedyank'
 Plug 'airblade/vim-gitgutter'
-Plug 'ervandew/supertab'
+Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
 " Unused, may reinstall
 " Plug 'mileszs/ack.vim'
 " Plug 'vim-airline/vim-airline'
