@@ -62,6 +62,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'airblade/vim-gitgutter'
 Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
 " Unused, may reinstall
+" Plug 'ervandew/supertab'
 " Plug 'mileszs/ack.vim'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
@@ -91,6 +92,9 @@ set showbreak=↳\
 set visualbell
 set cursorline
 set title
+
+" dont show the annoying completion window
+set completeopt=menu,longest
 
 " Tabs, spaces and wrapping
 set tabstop=4
@@ -168,10 +172,6 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 25
 
-" SuperTab:----------------------------------------------------------------{{{1
-
-let g:SuperTabDefaultCompletionType = "<c-n>" "set order of options to down
-
 " Git:---------------------------------------------------------------------{{{1
 " reduce the lag between vimgutter updates
 set updatetime=100
@@ -185,6 +185,19 @@ let g:python3_host_prog = '~/Documents/venvs/nvim/bin/python3'
 " Deoplete:----------------------------------------------------------------{{{1
 
 let g:deoplete#enable_at_startup = 1
+" <TAB> completion
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+" let g:deoplete#disable_auto_complete = 1
+" complete on press of tab only, used when auto complete is off
+" inoremap <silent><expr> <TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ <SID>check_back_space() ? "\<TAB>" :
+" \ deoplete#manual_complete()
+" function! s:check_back_space() abort "{{{
+" let col = col('.') - 1
+" return !col || getline('.')[col - 1]  =~ '\s'
+" endfunction"}}}
 
 " Ale:---------------------------------------------------------------------{{{1
 
@@ -216,10 +229,6 @@ let g:lightline = {
 " Gutentags:---------------------------------------------------------------{{{1
 let g:gutentags_cache_dir = '~/.gutentags/'
 let g:gutentags_ctags_exclude = ['*.html']
-
-" SuperTab:----------------------------------------------------------------{{{1
-
-let g:SuperTabDefaultCompletionType = "<c-n>" "set order of options to down
 
 " fzf:---------------------------------------------------------------------{{{1
 nnoremap <C-p> :Files<Cr>
@@ -379,5 +388,9 @@ set foldtext=MyFoldText()
 cnoreabbrev Ack Ack!
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
+" SuperTab:----------------------------------------------------------------{{{2
 
-" end of vimrc
+let g:SuperTabDefaultCompletionType = "<c-n>" "set order of options to down
+let g:SuperTabClosePreviewOnPopupClose = 1
+
+" ----------------------------- end of vimrc ----------------------------------
