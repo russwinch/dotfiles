@@ -94,6 +94,9 @@ set visualbell
 set cursorline
 set title
 
+" spell checking for git commits
+autocmd FileType gitcommit setlocal spell
+
 " dont show the annoying completion window
 set completeopt=menu,longest
 
@@ -341,28 +344,10 @@ nnoremap <leader>teh :call OpenHorzTerm()<cr>
 
 " Folding:-----------------------------------------------------------------{{{1
 
-" highlight Foldcolumn ctermfg=Darkgrey ctermbg=0 cterm=BOLD
-" highlight Folded ctermfg=Darkgrey ctermbg=NONE cterm=none
 set foldcolumn=2
 set foldmethod=marker
 set foldlevelstart=0
 
-function! MyFoldText()  "  {{{2
-  let line = getline(v:foldstart)
-
-  let nucolwidth = &fdc + &number * &numberwidth
-  let windowwidth = winwidth(0) - nucolwidth - 3
-  let foldedlinecount = v:foldend - v:foldstart
-
-  let onetab = strpart('           ', 0, &tabstop)
-  let line = substitute(line, '\t', onetab, 'g')
-
-  let line = strpart(line, 0, windowwidth - 2 - len(foldedlinecount))
-  let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
-  return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
-endfunction  "  2}}}
-
-set foldtext=MyFoldText()
 " Deprecated:--------------------------------------------------------------{{{1
 " CtrlP:-------------------------------------------------------------------{{{2
 " let g:ctrlp_map = '<c-p>'
