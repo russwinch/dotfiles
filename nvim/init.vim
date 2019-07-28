@@ -46,6 +46,7 @@ let &packpath = &runtimepath
 call plug#begin()
 Plug '~/.dotfiles/nvim/local-plugs/netrw'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'deoplete-plugins/deoplete-jedi', {'for': 'python'}
 Plug 'itchyny/lightline.vim'
 Plug 'w0rp/ale'
 Plug '/usr/local/opt/fzf'
