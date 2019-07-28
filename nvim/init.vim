@@ -45,8 +45,8 @@ let &packpath = &runtimepath
 
 call plug#begin()
 Plug '~/.dotfiles/nvim/local-plugs/netrw'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'deoplete-plugins/deoplete-jedi', {'for': 'python'}
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'deoplete-plugins/deoplete-jedi', {'for': 'python'}
 Plug 'itchyny/lightline.vim'
 Plug 'w0rp/ale'
 Plug '/usr/local/opt/fzf'
@@ -190,7 +190,7 @@ let g:python3_host_prog = '~/Documents/venvs/nvim/bin/python3'
 
 let g:deoplete#enable_at_startup = 1
 " <TAB> completion
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " let g:deoplete#disable_auto_complete = 1
 " complete on press of tab only, used when auto complete is off
