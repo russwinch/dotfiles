@@ -6,6 +6,7 @@
 	adog = log --oneline --decorate --all --graph
 	olog = log --oneline
     fpush = push --force-with-lease
+    cdiff = diff --cached
 [rerere]
 	enabled = true
 [merge]
