@@ -62,8 +62,8 @@ Plug 'alfredodeza/pytest.vim', {'for': 'python'}
 Plug 'machakann/vim-highlightedyank'
 Plug 'airblade/vim-gitgutter'
 Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
+Plug 'ervandew/supertab'
 " Unused, may reinstall
-" Plug 'ervandew/supertab'
 " Plug 'mileszs/ack.vim'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
@@ -96,9 +96,6 @@ set title
 
 " spell checking for git commits
 autocmd FileType gitcommit setlocal spell
-
-" dont show the annoying completion window
-set completeopt=menu,longest
 
 " Tabs, spaces and wrapping
 set tabstop=4
@@ -166,6 +163,17 @@ set wildmenu
 set ignorecase
 set smartcase
 set showmatch
+
+" dont show the annoying completion window
+" set completeopt=menu,longest
+
+" add spelling completion when spellcheck is activated
+set complete=.,w,b,u,t,i,kspell
+
+" SuperTab:----------------------------------------------------------------{{{1
+
+let g:SuperTabDefaultCompletionType = "<c-n>" "set order of options to down
+let g:SuperTabClosePreviewOnPopupClose = 1
 
 " File Explorer:-----------------------------------------------------------{{{1
 
@@ -374,9 +382,5 @@ set foldlevelstart=0
 cnoreabbrev Ack Ack!
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
-" SuperTab:----------------------------------------------------------------{{{2
-
-let g:SuperTabDefaultCompletionType = "<c-n>" "set order of options to down
-let g:SuperTabClosePreviewOnPopupClose = 1
 
 " ----------------------------- end of vimrc ----------------------------------
