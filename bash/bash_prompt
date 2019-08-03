@@ -5,6 +5,7 @@ if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
     source $HOME/.bash-git-prompt/gitprompt.sh
 fi
 
+GIT_PROMPT_FETCH_REMOTE_STATUS=0
 GIT_PROMPT_THEME=Custom
 
 export PS1="\[\033[0;32m\]\u \t\[\033[0m\] \w\n\$ "
