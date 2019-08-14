@@ -191,7 +191,7 @@ set updatetime=100
 
 " Virtualenv:--------------------------------------------------------------{{{1
 
-" install pynvim, flake8, pytest into thid venv
+" install pynvim, flake8, pytest into this venv
 let g:python3_host_prog = '~/Documents/venvs/nvim/bin/python3'
 
 " Deoplete:----------------------------------------------------------------{{{1
@@ -241,6 +241,7 @@ let g:lightline = {
 " Gutentags:---------------------------------------------------------------{{{1
 let g:gutentags_cache_dir = '~/.gutentags/'
 let g:gutentags_ctags_exclude = ['*.html']
+nnoremap <leader>tu :GutentagsUpdate<CR>
 
 " fzf:---------------------------------------------------------------------{{{1
 nnoremap <C-p> :Files<Cr>
@@ -260,17 +261,11 @@ nnoremap <leader>tt :tabedit %<CR>
 " nnoremap <leader>bn :bn<CR>
 " nnoremap <leader>bp :bp<CR>
 
-" delete buffer
-nnoremap <leader>bd :bn<CR>:bd#<CR>
-
 " reload all buffers with syntax highlighting
 nnoremap <leader>br :execute 'bufdo :e' <bar> source $VIMRUNTIME/syntax/syntax.vim<cr>
 
-" check for changes on disk for all buffers
-nnoremap <leader>bc :checktime<cr>
-
 " use relative numbering
-nnoremap <silent> <leader>u <ESC>:set relativenumber!<CR><ESC>
+nnoremap <leader>u <ESC>:set relativenumber!<CR><ESC>
 " inoremap <silent> <leader>u <ESC>:set relativenumber!<CR><ESC>i
 
 " open vimrc in a tab for a quick edit
@@ -278,7 +273,7 @@ nnoremap <leader>ve :tabe $MYVIMRC<cr>
 " source the vimrc file
 nnoremap <leader>vs :source $MYVIMRC<cr>
 
-" - search & highlighting
+" cancel highlight
 nnoremap <silent> <leader>hh :nohl<cr>
 
 " navigate between splits
@@ -298,7 +293,7 @@ inoremap <leader>td # TODO:
 nnoremap <leader>td o# TODO:
 nnoremap <leader>st Oimport pdb; pdb.set_trace()<ESC>
 nnoremap <leader>ip Ofrom IPython import embed; embed()<ESC>
-nnoremap <leader>ft :Ack! pdb<CR>
+nnoremap <leader>ft :Ag pdb<CR>
 
 " pretty print json
 nnoremap <leader>jp :%!python -m json.tool<cr>
@@ -319,10 +314,10 @@ nnoremap <silent>]E :ALELast<cr>
 nnoremap <leader>gg :GitGutterAll<cr>
 
 " open 4 way git diff
-nnoremap <leader>gd :Gsplit :1:%<cr> <C-w>W  :Gvdiff!<cr>
+nnoremap <leader>gd :Gsplit :1:%<cr> <C-w>W :Gvdiff!<cr>
 
 " remove trailing white spaces from lines
-nnoremap <silent><leader>tw :%s/\s\+$//e<cr>
+nnoremap <leader>tw :%s/\s\+$//e<cr>
 
 " toggle left explorer
 nnoremap <silent><leader>l :Lexplore<cr>
