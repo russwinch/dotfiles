@@ -187,7 +187,7 @@ let g:netrw_winsize = 25
 " Git:---------------------------------------------------------------------{{{1
 " reduce the lag between vimgutter updates
 set updatetime=100
-" command Gadiff Gdiff :1:% | Gvdiff<CR>
+" command! Gadiff Ghdiff :1:% | Gvdiff!<CR>
 
 " Virtualenv:--------------------------------------------------------------{{{1
 
@@ -321,6 +321,17 @@ nnoremap <leader>tw :%s/\s\+$//e<cr>
 
 " toggle left explorer
 nnoremap <silent><leader>l :Lexplore<cr>
+
+" pytest
+nnoremap <leader>ta :Pytest file<cr>
+nnoremap <leader>tc :Pytest class<cr>
+nnoremap <leader>tm :Pytest method<cr>
+nnoremap <leader>tf :Pytest function<cr>
+nnoremap <leader>tva :Pytest file verbose<cr>
+nnoremap <leader>tvc :Pytest class verbose<cr>
+nnoremap <leader>tvm :Pytest method verbose<cr>
+nnoremap <leader>tvf :Pytest function verbose<cr>
+nnoremap <leader>ts :Pytest session<cr>
 
 " Terminal:----------------------------------------------------------------{{{1
 " tnoremap <Esc> <C-\><C-n>
