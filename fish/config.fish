@@ -1,4 +1,5 @@
 . ~/.config/fish/aliases.fish
+. ~/.local.fish
 
 set fish_greeting
 
