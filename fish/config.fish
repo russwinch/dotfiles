@@ -2,10 +2,10 @@
 
 set fish_greeting
 
-set -gx EDITOR nvim
+set -x EDITOR nvim
 
 # fzf should use the silver searcher
-set -gx FZF_DEFAULT_COMMAND 'ag -g ""'
+set -x FZF_DEFAULT_COMMAND 'ag -g ""'
 
 # prevent ctrl-d exiting until the 5th time
 function fish_user_key_bindings
