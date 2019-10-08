@@ -295,9 +295,9 @@ nnoremap <leader>V "*P
 " snippets
 inoremap <leader>td # TODO:
 nnoremap <leader>td o# TODO:
-nnoremap <leader>st Oimport pdb; pdb.set_trace()<ESC>
+nnoremap <leader>st Obreakpoint()<ESC>
 nnoremap <leader>ip Ofrom IPython import embed; embed()<ESC>
-nnoremap <leader>ft :Ag pdb<CR>
+nnoremap <leader>ft :Ag breakpoint<CR>
 
 " pretty print json
 nnoremap <leader>jp :%!python -m json.tool<cr>
