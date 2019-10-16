@@ -80,7 +80,7 @@ function fish_prompt --description 'Write out the prompt'
     echo -n (date "+%H:%M:%S ")
     # PWD
     set_color normal
-    set -g fish_prompt_pwd_dir_length 0
+    set -g fish_prompt_pwd_dir_length 2
     echo -n (prompt_pwd)
 
     printf '%s ' (__fish_vcs_prompt)
