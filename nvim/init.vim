@@ -192,11 +192,7 @@ set updatetime=100
 " Virtualenv:--------------------------------------------------------------{{{1
 
 " install pynvim, flake8, pytest into this venv
-if $LOCATION == 'work'
-    let g:python3_host_prog = '~/venvs/nvim/bin/python3'
-else
-    let g:python3_host_prog = '~/Documents/venvs/nvim/bin/python3'
-endif
+let g:python3_host_prog = $HOME.'/venvs/nvim/bin/python3'
 
 " Deoplete:----------------------------------------------------------------{{{1
 
@@ -218,12 +214,8 @@ let g:deoplete#enable_at_startup = 1
 " Ale:---------------------------------------------------------------------{{{1
 
 let g:ale_linters = {'python': ['flake8']}
-if $LOCATION == 'work'
-    let g:ale_python_flake8_executable = '/Users/russ/venvs/nvim/bin/flake8'
-    let g:ale_python_flake8_options = '--max-line-length 88 --ignore E501,W503'
-else
-    let g:ale_python_flake8_executable = '/Users/Russ/Documents/venvs/nvim/bin/flake8'
-endif
+let g:ale_python_flake8_executable = $HOME.'/venvs/nvim/bin/flake8'
+let g:ale_python_flake8_options = '--max-line-length 88 --ignore E501,W503'
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
 let g:ale_sign_column_always = 1
