@@ -194,6 +194,8 @@ set updatetime=100
 " install pynvim, flake8, pytest into this venv
 let g:python3_host_prog = $HOME.'/venvs/nvim/bin/python3'
 
+let g:pytest_executable = substitute(system("which -a pytest | head -n2 | tail -n1"), "\n", '', 'g')
+
 " Deoplete:----------------------------------------------------------------{{{1
 
 let g:deoplete#enable_at_startup = 1
