@@ -3,17 +3,17 @@
 ;     path = ~/.dotfiles/git/gitconfig
 
 [alias]
-	adog = log --oneline --decorate --all --graph
-	olog = log --oneline
+    adog = log --oneline --decorate --all --graph
+    olog = log --oneline
     fpush = push --force-with-lease
     cdiff = diff --cached
 [rerere]
-	enabled = true
+    enabled = true
 [merge]
-	tool = vimdiff
+    tool = vimdiff
 [mergetool "vimdiff"]
-	path = nvim
+    path = nvim
 [mergetool]
-	keepBackup = false
+    keepBackup = false
 [core]
-	excludesfile = ~/.dotfiles/git/gitignore_global
+    excludesfile = ~/.dotfiles/git/gitignore_global
