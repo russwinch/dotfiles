@@ -7,7 +7,8 @@ let &packpath = &runtimepath
 " then use :PlugInstall
 
 " Plugin_Support:
-" pip3 install pynvim flake8 yapf
+" create virtualenv nvim in home/venvs and pip install pynvim, flake8
+" python2 -m pip install ropevim pynvim
 " powerline fonts: see note below
 " universal c-tags: brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 " brew install ack (if not already installed)
@@ -63,6 +64,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'airblade/vim-gitgutter'
 Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
 Plug 'ervandew/supertab'
+Plug 'python-rope/ropevim'
 " Unused, may reinstall
 " Plug 'mileszs/ack.vim'
 " Plug 'vim-airline/vim-airline'
