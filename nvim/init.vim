@@ -331,9 +331,9 @@ nnoremap <leader>tva :Pytest file verbose<cr>
 nnoremap <leader>tvc :Pytest class verbose<cr>
 nnoremap <leader>tvm :Pytest method verbose<cr>
 nnoremap <leader>tvf :Pytest function verbose<cr>
-nnoremap <leader>tn :Pytest next<cr>
-nnoremap <leader>tp :Pytest previous<cr>
-nnoremap <leader>te :Pytest error<cr>
+nnoremap <leader>te :Pytest next<cr>
+nnoremap <leader>tE :Pytest previous<cr>
+nnoremap <leader>tve :Pytest error<cr>
 
 " Terminal:----------------------------------------------------------------{{{1
 " tnoremap <Esc> <C-\><C-n>
