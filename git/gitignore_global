@@ -1,3 +1,4 @@
 *.python-version
 *.swp
 .ropeproject/
+.DS_Store
