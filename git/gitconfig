@@ -7,6 +7,7 @@
     olog = log --oneline
     fpush = push --force-with-lease
     cdiff = diff --cached
+    last = rev-parse --short head
 [rerere]
     enabled = true
 [merge]
