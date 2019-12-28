@@ -336,6 +336,10 @@ nnoremap <leader>te :Pytest next<cr>
 nnoremap <leader>tE :Pytest previous<cr>
 nnoremap <leader>tve :Pytest error<cr>
 
+" execute in python
+nnoremap <silent><leader>rp :w ! python<cr>
+vnoremap <silent><leader>rp :w ! python<cr>
+
 " Terminal:----------------------------------------------------------------{{{1
 " tnoremap <Esc> <C-\><C-n>
 tnoremap <C-v><Esc> <Esc>
