@@ -46,8 +46,9 @@ let &packpath = &runtimepath
 
 call plug#begin()
 Plug '~/.dotfiles/nvim/local-plugs/netrw'
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'deoplete-plugins/deoplete-jedi', {'for': 'python'}
+Plug 'davidhalter/jedi-vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'deoplete-plugins/deoplete-jedi', {'for': 'python'}
 Plug 'itchyny/lightline.vim'
 Plug 'w0rp/ale'
 Plug '/usr/local/opt/fzf'
@@ -66,6 +67,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
 Plug 'ervandew/supertab'
 " Unused, may reinstall
+" Plug 'python-rope/ropevim'
 " Plug 'mileszs/ack.vim'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
@@ -115,7 +117,7 @@ set colorcolumn=+1
 " Splits and buffers - feels more natural
 set splitbelow
 set splitright
-" set hidden
+set hidden
 
 " I know this is terrible but it is nice to scroll...
 set mouse=a
@@ -175,7 +177,7 @@ set complete=.,w,b,u,t,i,kspell
 " SuperTab:----------------------------------------------------------------{{{1
 
 let g:SuperTabDefaultCompletionType = "<c-n>" "set order of options to down
-let g:SuperTabClosePreviewOnPopupClose = 1
+" let g:SuperTabClosePreviewOnPopupClose = 1
 
 " File Explorer:-----------------------------------------------------------{{{1
 
@@ -201,15 +203,23 @@ let g:pytest_executable = substitute(system("which -a pytest | head -n2 | tail -
 " Deoplete:----------------------------------------------------------------{{{1
 
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#enable_typeinfo = 0
+" let g:deoplete#sources#jedi#show_docstring = 1
+
 " <TAB> completion
 " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " let g:deoplete#disable_auto_complete = 1
 " complete on press of tab only, used when auto complete is off
+
 " inoremap <silent><expr> <TAB>
 " \ pumvisible() ? "\<C-n>" :
 " \ <SID>check_back_space() ? "\<TAB>" :
 " \ deoplete#manual_complete()
+" function! s:check_back_space() abort "{{{
+" let col = col('.') - 1
+" return !col || getline('.')[col - 1]  =~ '\s'
+" endfunction"}}}
 " function! s:check_back_space() abort "{{{
 " let col = col('.') - 1
 " return !col || getline('.')[col - 1]  =~ '\s'
@@ -247,6 +257,18 @@ nnoremap <leader>tu :GutentagsUpdate<CR>
 nnoremap <C-p> :Files<Cr>
 nnoremap <leader>bb :Buffers<Cr>
 nnoremap <leader>w :Windows<Cr>
+"
+" Jedi:--------------------------------------------------------------------{{{1
+let g:jedi#goto_command = "<leader>gd"
+let g:jedi#goto_assignments_command = "<leader>ga"
+let g:jedi#goto_definitions_command = ""
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>gu"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#rename_command = "<leader>gr"
+
+let g:jedi#show_call_signatures = "2"
+let g:jedi#completions_enabled = 0
 
 " Remappings:--------------------------------------------------------------{{{1
 " insert blank row
