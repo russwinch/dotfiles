@@ -65,7 +65,6 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'airblade/vim-gitgutter'
 Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
 Plug 'ervandew/supertab'
-Plug 'python-rope/ropevim'
 " Unused, may reinstall
 " Plug 'mileszs/ack.vim'
 " Plug 'vim-airline/vim-airline'
