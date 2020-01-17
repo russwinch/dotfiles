@@ -361,6 +361,9 @@ nnoremap <leader>tve :Pytest error<cr>
 nnoremap <silent><leader>rp :w ! python<cr>
 vnoremap <silent><leader>rp :w ! python<cr>
 
+" create docstring
+nnoremap <leader>ds o"""<esc>oArgs:<esc>oReturns:<esc>oYields:<esc>oRaises:<esc>o"""<esc>5k
+
 " Terminal:----------------------------------------------------------------{{{1
 " tnoremap <Esc> <C-\><C-n>
 tnoremap <C-v><Esc> <Esc>
