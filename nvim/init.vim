@@ -419,5 +419,7 @@ set foldlevelstart=0
 cnoreabbrev Ack Ack!
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
+set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
+set grepformat=%f:%l:%c:%m,%f:%l:%m
 
 " ----------------------------- end of vimrc ----------------------------------
