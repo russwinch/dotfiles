@@ -59,6 +59,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-fireplace', {'for': 'clojure'}
+Plug 'junegunn/rainbow_parentheses.vim', {'for': 'clojure'}
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'christoomey/vim-sort-motion'
 Plug 'alfredodeza/pytest.vim', {'for': 'python'}
@@ -227,7 +229,7 @@ let g:deoplete#sources#jedi#enable_typeinfo = 0
 
 " Ale:---------------------------------------------------------------------{{{1
 
-let g:ale_linters = {'python': ['flake8']}
+let g:ale_linters = {'python': ['flake8'], 'clojure': ['clj-kondo', 'joker']}
 let g:ale_python_flake8_executable = $HOME.'/venvs/nvim/bin/flake8'
 let g:ale_python_flake8_options = '--max-line-length 88 --ignore E501,W503'
 let g:ale_sign_error = '⤫'
@@ -269,6 +271,12 @@ let g:jedi#rename_command = "<leader>gr"
 
 let g:jedi#show_call_signatures = "2"
 let g:jedi#completions_enabled = 0
+"
+" Rainbow:-----------------------------------------------------------------{{{1
+augroup rainbow_lisp
+  autocmd!
+  autocmd FileType lisp,clojure,scheme RainbowParentheses
+augroup END
 
 " Remappings:--------------------------------------------------------------{{{1
 " insert blank row
@@ -358,11 +366,13 @@ nnoremap <leader>tE :Pytest previous<cr>
 nnoremap <leader>tve :Pytest error<cr>
 
 " execute in python
-nnoremap <silent><leader>rp :w ! python<cr>
-vnoremap <silent><leader>rp :w ! python<cr>
+nnoremap <silent><leader>xp :w ! python<cr>
+vnoremap <silent><leader>xp :w ! python<cr>
 
 " create docstring
 nnoremap <leader>ds o"""<esc>oArgs:<esc>oReturns:<esc>oYields:<esc>oRaises:<esc>o"""<esc>5k
+
+nnoremap gr :Require<cr>
 
 " Terminal:----------------------------------------------------------------{{{1
 " tnoremap <Esc> <C-\><C-n>
