@@ -61,6 +61,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fireplace', {'for': 'clojure'}
 Plug 'junegunn/rainbow_parentheses.vim', {'for': 'clojure'}
+Plug 'bhurlow/vim-parinfer', {'for': 'clojure'}
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'christoomey/vim-sort-motion'
 Plug 'alfredodeza/pytest.vim', {'for': 'python'}
