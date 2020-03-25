@@ -287,7 +287,7 @@ nnoremap <leader>R O<ESC>
 " navigating between vim tabs and buffers
 nnoremap <leader>tn :tabnew<CR>
 nnoremap <leader>n :tabn<CR>
-nnoremap <leader>p :tabp<CR>
+nnoremap <leader>N :tabp<CR>
 nnoremap <leader>tt :tabedit %<CR>
 " nnoremap <leader>bn :bn<CR>
 " nnoremap <leader>bp :bp<CR>
