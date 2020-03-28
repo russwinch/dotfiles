@@ -272,7 +272,7 @@ let g:jedi#usages_command = "<leader>gu"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>gr"
 
-let g:jedi#show_call_signatures = "2"
+let g:jedi#show_call_signatures = "1"
 let g:jedi#completions_enabled = 0
 "
 " Rainbow:-----------------------------------------------------------------{{{1
