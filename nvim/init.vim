@@ -353,7 +353,7 @@ nnoremap <leader>gd :Gsplit :1:%<cr> <C-w>W :Gvdiff!<cr>
 nnoremap <leader>tw :%s/\s\+$//e<cr>
 
 " toggle left explorer
-nnoremap <silent><leader>l :Lexplore<cr>
+nnoremap <silent><leader>L :Lexplore<cr>
 
 " pytest
 nnoremap <leader>ta :Pytest file<cr>
