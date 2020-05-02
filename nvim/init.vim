@@ -200,8 +200,9 @@ set updatetime=100
 
 " Virtualenv:--------------------------------------------------------------{{{1
 
-" install pynvim, flake8, pytest into this venv
-let g:python3_host_prog = $HOME.'/venvs/nvim/bin/python3'
+" install pynvim, flake8 into this venv
+let virtualenv = $HOME.'/venvs/nvim3.8/bin'
+let g:python3_host_prog = virtualenv.'/python3'
 
 let g:pytest_executable = substitute(system("which -a pytest | head -n2 | tail -n1"), "\n", '', 'g')
 
@@ -233,7 +234,7 @@ let g:deoplete#sources#jedi#enable_typeinfo = 0
 " Ale:---------------------------------------------------------------------{{{1
 
 let g:ale_linters = {'python': ['flake8'], 'clojure': ['clj-kondo', 'joker']}
-let g:ale_python_flake8_executable = $HOME.'/venvs/nvim/bin/flake8'
+let g:ale_python_flake8_executable = virtualenv.'/flake8'
 let g:ale_python_flake8_options = '--max-line-length 88 --ignore E501,W503'
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
