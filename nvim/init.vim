@@ -82,16 +82,19 @@ Plug 'vim-python/python-syntax'
 " Plug 'Chiel92/vim-autoformat'
 " Plug 'SirVer/ultisnips'
 " Plug 'honza/vim-snippets' "contains the acutal snippets for use in ultisnips
+"
 " Themes
-Plug 'tomasr/molokai'
-Plug 'sjl/badwolf'
-Plug 'morhetz/gruvbox'
-Plug 'veloce/vim-aldmeris'
-Plug 'nightsense/forgotten'
-Plug 'nightsense/snow'
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'ayu-theme/ayu-vim'
-" Plug 'lifepillar/vim-solarized8'
+Plug 'tomasr/molokai' " high contrast
+Plug 'sjl/badwolf' " high contrast
+Plug 'morhetz/gruvbox' " high contrast dark & light
+Plug 'veloce/vim-aldmeris' " high contrast
+Plug 'nightsense/forgotten' " low contrast / dark & light
+Plug 'nightsense/snow' " light
+Plug 'drewtempelmeyer/palenight.vim' " high contrast
+Plug 'skielbasa/vim-material-monokai' " high contrast
+Plug 'patstockwell/vim-monokai-tasty' " high contrast
+Plug 'jnurmine/Zenburn' " low contrast
+Plug 'nanotech/jellybeans.vim' " high contrast
 call plug#end()
 
 " Basic settngs:-----------------------------------------------------------{{{1
@@ -155,18 +158,19 @@ set termguicolors
 " set background=light
 set background=dark
 
-colorscheme gruvbox
+" for daytime
+" colorscheme gruvbox
+colorscheme material-monokai
+" colorscheme palenight
+" colorscheme badwolf
 
-" colorscheme forgotten-dark
+" for nighttime
+" colorscheme zenburn
+
+" for light theme (never!)
+" colorscheme forgotten-light
 " let g:airline_theme='snow_dark'
 
-" molokai specific adjustments
-" highlight cursorline ctermbg=236 ctermfg=none
-" highlight colorcolumn ctermbg=darkred
-" highlight Visual cterm=bold ctermbg=247 ctermfg=NONE
-" highlight Comment ctermfg=244
-" highlight! link TermCursor Cursor
-" highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
 let g:python_highlight_all = 1
 
 " Finding and autocomplete:------------------------------------------------{{{1
