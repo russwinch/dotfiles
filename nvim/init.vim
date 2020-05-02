@@ -71,6 +71,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'airblade/vim-gitgutter'
 Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
 Plug 'ervandew/supertab'
+Plug 'vim-python/python-syntax'
 " Unused, may reinstall
 " Plug 'python-rope/ropevim'
 " Plug 'mileszs/ack.vim'
@@ -166,6 +167,7 @@ colorscheme gruvbox
 " highlight Comment ctermfg=244
 " highlight! link TermCursor Cursor
 " highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
+let g:python_highlight_all = 1
 
 " Finding and autocomplete:------------------------------------------------{{{1
 set wildmenu
