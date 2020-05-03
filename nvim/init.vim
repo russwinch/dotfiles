@@ -271,7 +271,7 @@ nnoremap <leader>bb :Buffers<Cr>
 nnoremap <leader>w :Windows<Cr>
 "
 " Jedi:--------------------------------------------------------------------{{{1
-let g:jedi#goto_command = "<leader>gd"
+let g:jedi#goto_command = "gd"
 let g:jedi#goto_assignments_command = "<leader>ga"
 let g:jedi#goto_definitions_command = ""
 let g:jedi#documentation_command = "K"
