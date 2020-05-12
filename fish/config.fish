@@ -3,6 +3,9 @@
 
 set fish_greeting
 
+# vi modes with emacs bindings
+fish_hybrid_key_bindings
+
 set -x EDITOR nvim
 
 # fzf should use the silver searcher
