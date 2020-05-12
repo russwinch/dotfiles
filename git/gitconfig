@@ -8,6 +8,8 @@
     fpush = push --force-with-lease
     cdiff = diff --cached
     last = rev-parse --short head
+    co = checkout
+    br = branch
 [rerere]
     enabled = true
 [merge]
