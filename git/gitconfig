@@ -11,6 +11,7 @@
     last = rev-parse --short head
     co = checkout
     br = branch
+    wip = commit -a -m "wip"
 [rerere]
     enabled = true
 [merge]
