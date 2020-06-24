@@ -334,7 +334,7 @@ nnoremap <leader>td o# TODO:
 nnoremap <leader>st Obreakpoint()<ESC>
 nnoremap <leader>ip Ofrom IPython import embed; embed()<ESC>
 nnoremap <leader>ft :Ag breakpoint<CR>
-nnoremap <leader>mp o@mock.patch.object(, '', autospec=True)<ESC>
+nnoremap <leader>mp O@mock.patch.object(, '', autospec=True)<ESC>
 
 " pretty print json
 nnoremap <leader>jp :%!python -m json.tool<cr>
