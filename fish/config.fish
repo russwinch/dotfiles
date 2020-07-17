@@ -15,6 +15,8 @@ set -x FZF_DEFAULT_COMMAND 'ag -g ""'
 function fish_user_key_bindings
     bind \cd delete-char
     bind \cd\cd\cd\cd\cd exit
+    bind --mode insert \cd delete-char
+    bind --mode insert \cd\cd\cd\cd\cd exit
 end
 
 # pyenv
