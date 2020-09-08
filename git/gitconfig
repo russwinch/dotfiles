@@ -20,5 +20,7 @@
     path = nvim
 [mergetool]
     keepBackup = false
+[rebase]
+    autosquash = true
 [core]
     excludesfile = ~/.dotfiles/git/gitignore_global
