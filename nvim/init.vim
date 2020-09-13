@@ -71,7 +71,8 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'airblade/vim-gitgutter'
 Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
 Plug 'ervandew/supertab'
-Plug 'vim-python/python-syntax'
+Plug 'vim-python/python-syntax', {'for': 'python'}
+Plug 'dyng/ctrlsf.vim'
 " Unused, may reinstall
 " Plug 'python-rope/ropevim'
 " Plug 'mileszs/ack.vim'
