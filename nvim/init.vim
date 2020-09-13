@@ -343,6 +343,9 @@ vnoremap <leader>jp :%!python -m json.tool<cr>
 " search for selected text from visual mode
 vnoremap // y/<C-R>"<CR>
 
+" current directory useful for !mkdir -p %%
+cnoremap %% %:h
+
 " navigate through errors
 nnoremap <leader>e :ALENext<cr>
 nnoremap <leader>E :ALEPrevious<cr>
