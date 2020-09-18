@@ -7,14 +7,8 @@ let &packpath = &runtimepath
 " then use :PlugInstall
 
 " Plugin_Support:
-" create virtualenv nvim in home/venvs and pip install pynvim, flake8
-" python2 -m pip install ropevim pynvim
-" powerline fonts: see note below
-" universal c-tags: brew install --HEAD universal-ctags/universal-ctags/universal-ctags
-" brew install ack (if not already installed)
-"       or
-" brew install the_silver_searcher (configure choice below)
-" brew install fzf (if not already installed)
+" create virtualenv nvim in home/venvs and pip install pynvim, flake8, jedi
+" brew install the_silver_searcher
 
 " Updating_netrw:
 " check latest version with :echo g:loaded_netrwPlugin
@@ -32,16 +26,6 @@ let &packpath = &runtimepath
 " it should now be picked up by vim-plug by adding the following:
 "   Plug '~/.dotfiles/nvim/local-plugs/netrw'
 "
-
-" Themes:
-" Create a colors directory ~/.config/nvim/colors
-" Curl them with -o option to write a file
-" or just install with Vimplug :)
-
-" Powerline_fonts:
-" Download 'Meslo Slashed' from https://github.com/powerline/fonts
-" Install locally then set iterm non-ascii font to '12pt Meslo LG S Regular for Powerline'
-
 " Vimplug:-----------------------------------------------------------------{{{1
 
 call plug#begin()
