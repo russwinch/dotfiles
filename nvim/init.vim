@@ -11,19 +11,19 @@ let &packpath = &runtimepath
 " brew install the_silver_searcher
 
 " Updating_netrw:
-" check latest version with :echo g:loaded_netrwPlugin
+" check latest version with :echo g:loaded_netrwPlugin [~v165 ships, ~170 is latest]
 " clean existing version:
 "   ni http://www.drchip.org/astronaut/vim/vbafiles/netrwclean.vba.gz
 "   :packadd vimball
 "   :UseVimball ~/.dotfiles/nvim/local-plugs/netrwclean
 "   :NetrwClean
-" exit vim and then get and install the latest version of netrw:
+" exit vim and then download and install the latest version of netrw:
 "   it's not possible to open from the url as netrw is uninstalled :/
 "   curl http://www.drchip.org/astronaut/vim/vbafiles/netrw.vba.gz -o ~/Downloads/netrw.vba.gz
-"   ni ~/Downoads/netrw.vba.gz
+"   ni ~/Downloads/netrw.vba.gz
 "   :packadd vimball
 "   :UseVimball ~/.dotfiles/nvim/local-plugs/netrw
-" it should now be picked up by vim-plug by adding the following:
+" it should now be picked up by vim-plug (already added, just for info)
 "   Plug '~/.dotfiles/nvim/local-plugs/netrw'
 "
 " Vimplug:-----------------------------------------------------------------{{{1
