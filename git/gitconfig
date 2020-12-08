@@ -4,6 +4,7 @@
 
 [alias]
     adog = log --oneline --decorate --all --graph
+    dog = log --oneline --decorate --graph
     olog = log --oneline
     fpush = push --force-with-lease
     rdel = push --delete origin
