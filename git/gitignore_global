@@ -2,3 +2,5 @@
 *.swp
 .ropeproject/
 .DS_Store
+.projections.json
+.ignore

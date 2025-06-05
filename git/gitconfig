@@ -12,7 +12,7 @@
     last = rev-parse --short head
     co = checkout
     br = branch
-    wip = commit -a -m "wip"
+    wip = commit -a -m "wip" --no-verify
 [rerere]
     enabled = true
 [merge]

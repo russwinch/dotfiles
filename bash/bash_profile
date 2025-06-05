@@ -27,7 +27,7 @@ HISTIGNORE="clear:exit:cd:pwd:ls:la:ll:lf:lx:history"
 HISTSIZE="1000"
 HISTFILESIZE="2000"
 
-Shell only exits after the 5th consecutive Ctrl-d
+# shell only exits after the 5th consecutive Ctrl-d
 IGNOREEOF=5
 
 export EDITOR="nvim"
